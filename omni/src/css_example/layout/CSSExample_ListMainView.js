@@ -43,7 +43,14 @@ const CSSExample_ListMainView = () => {
             <div class="overviewcard__icon">Overview</div>
             <div class="overviewcard__info">Card</div>
           </div>
-
+          {/* <div class="overviewcard">
+            <div class="overviewcard__icon">Overview</div>
+            <div class="overviewcard__info">Card</div>
+          </div>
+          <div class="overviewcard">
+            <div class="overviewcard__icon">Overview</div>
+            <div class="overviewcard__info">Card</div>
+          </div> */}
         
         </div>
         <div className="container_list_main_view_main_cards">
