@@ -38,6 +38,7 @@ import Zadatak_J7 from "./html_assignments/Zadatak_J7";
 import Zadatak_J8 from "./html_assignments/Zadatak_J8";
 import Zadatak_J9 from "./html_assignments/Zadatak_J9";
 import CSSExample_ListMainView from "./css_example/layout/CSSExample_ListMainView";
+import CSSExample_Dashboard from "./css_example/layout/CSSExampla_Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
   {
     path: "/css_layout/css_list_view_example",
     element: <CSSExample_ListMainView/>
+  },
+  {
+    path: "/css_layout/css_dashboard",
+    element: <CSSExample_Dashboard/>
   },
   {
     path: "/html_assignment",
