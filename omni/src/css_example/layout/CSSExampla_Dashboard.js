@@ -4,16 +4,22 @@ const CSSExample_Dashboard = () => {
     const [isActive, setActive] = useState(false);
     const openMenu = () => {
         setActive(true);
+        document.getElementById("dashboard_grid_container").style.marginLeft = "240px";
+        document.getElementById("dashboard_header").style.marginLeft = "240px";
+
     }
 
     const closeMenu = () => {
         setActive(false);
+        document.getElementById("dashboard_grid_container").style.marginLeft = "0px";
+        document.getElementById("dashboard_header").style.marginLeft = "0px";
+
     }
-    return <div className='dashboard_grid_container'>
+    return <div  className='dashboard_grid_container'>
         <div className='dashboard_menu_icon'>
             <strong onClick={openMenu}> &#9776; </strong>
         </div>
-        <header className='dashboard_header'>
+        <header className='dashboard_header' id="dashboard_header">
             <div className='dashboard_header_search'>Search...</div>
             <div className='dashboard_header_avatar'>Logout</div>
         </header>
@@ -30,7 +36,7 @@ const CSSExample_Dashboard = () => {
                 <li className='dashboard_aside_list_item'>Menu item 6</li>
             </ul>
         </aside>
-        <main className='dashboard_main'>
+        <main className='dashboard_main' id="dashboard_grid_container">
             <div className='dashboard_main_overview'>
                 <div className='dashboard_main_overview_card'>
                     <div className='dashboard_main_overview_card_info'>

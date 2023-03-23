@@ -1,7 +1,7 @@
 /* CSS za formu */
 .container-form {
     position: relative;
-    width: 50%;
+    width: 80%;
     height: inherit;
     margin: auto;
     padding: 15px;
@@ -33,7 +33,7 @@
 }
 
 .select-field {
-    width: 100%;
+    width: stretch;
     height: 50%;
     padding: 16px 20px;
     border: none;
@@ -74,3 +74,11 @@
     color: white;
     border: solid 1px #34a4eb;
   }
+
+  @media screen and (max-width: 1000px) {
+    .form-container{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
