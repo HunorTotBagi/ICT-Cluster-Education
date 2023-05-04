@@ -68,6 +68,9 @@ function App() {
           <li><Link to="jsx/hooks">Hook programiranje u React: effect i state</Link></li>
           <li><Link to="jsx/fetch">Fetch API i React</Link></li>
           <li><Link to="jsx/stopwatch2">JSX - operativan primer štoperice</Link></li>
+          <li><Link to="jsx/pretraga">Primer dinamičke pretrage</Link></li>
+          <li><Link to="lib/moduli">JS i moduli</Link></li>
+          <li><Link to="lib/routes">React i Rutiranje</Link></li>
         </ul>
         <li> Zadaci </li>
         <ul>
