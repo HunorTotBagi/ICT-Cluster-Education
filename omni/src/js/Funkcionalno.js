@@ -40,6 +40,8 @@ const saberi5 = (...sve) => {
     return suma;
 }
 
+
+
 const p01_funkcije = () => {
     return <table border={1}>
         <tr><th>Izraz</th><th>Rezultat</th></tr>
@@ -133,7 +135,7 @@ const p05_funkcija_kao_povratna = () => {
 
 const Funkcionalno = () => {
     return <div>
-        {p01_funkcije()}
+        {p05_funkcija_kao_povratna()}
     </div>;
 }
 

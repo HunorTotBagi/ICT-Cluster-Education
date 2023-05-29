@@ -58,6 +58,8 @@ import AutoLoad2 from "./lib_examples/AutoLoad2";
 import BookError from "./lib_examples/BookError";
 import BookError2 from "./lib_examples/BookError2";
 import SearchExample from "./jsx_examples/SearchExample";
+import ImmerExample from "./lib_examples/ImmerExample";
+import Context from "./lib_examples/Context";
 
 /*
   Ovo je mesto gde se prave _rute_ u našoj aplikaciji. Ideja je sledeća:
@@ -357,6 +359,14 @@ const router = createBrowserRouter([
         }
       }
     ]
+  },
+  {
+    path:"lib/immer",
+    element: <ImmerExample/>
+  },
+  {
+    path:"lib/context",
+    element: <Context/>
   }
 ]);
 

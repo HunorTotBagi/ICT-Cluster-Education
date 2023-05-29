@@ -10,7 +10,7 @@
 
     Kada se poštuju pravila možemo da koristimo komponentu tako što napišemo njeno ime između < i />
 */
-
+ 
 const Primer1 = () => {
     return <h1>Ovo je minimalna komponenta,</h1>
 }

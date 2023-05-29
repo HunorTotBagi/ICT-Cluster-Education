@@ -87,7 +87,7 @@ const p03_Datum  = () => {
 
 const Usluzne = () => {
         return <div>
-            {p03_Datum()}
+            {p01_brojevi()}
         </div>;
 }
     

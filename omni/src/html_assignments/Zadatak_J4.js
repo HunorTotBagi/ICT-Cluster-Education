@@ -24,18 +24,131 @@ const Zadatak_J4 = () => {
     <h2> Zadatak 4</h2>
     <div className='zad_container'>
       <div> 
-          <p> Slika na osnovu koje treba napraviti formu</p>
+     
           <img src={slika}/>
       </div>
       <div>
-      {/* to do: ovde kreirati formu */}
-      <p> TO DO: FORMA</p>
+      <h1>Lunch special</h1>
+
+<h3>monday thru friday, 11 am ~ 3pm</h3>
+
+<h3>$9.95</h3>
+
+
+
+<form action="https://cscie12.dce.harvard.edu/echo" method="post">
+
+
+  <br></br>
+  <br></br>
+  <label for="ime">Ime</label>
+  <input type="text" name="ime"></input>
+  <label for="Prezime">Prezime</label>
+  <input type="text" name="prezime"></input>
+  <br></br>
+  <br></br>
+
+  
+  <fieldset>
+  <h3>sandwiches:</h3>
+<p>Monday: </p>
+<label for="Tommato">Tommato Mozarela</label>
+  <input type="radio" name="Tommato" value="Tommato"></input>
+  <label for="Tommato"></label>
+
+  <label for="Chicken">Chicken Salat</label>
+<input type="radio" name="Tommato" value="Chicken"></input>
+<label for="Chicken"></label>
+
+<p>Tuesday:</p>
+ 
+<label for="Greek">Greek Salad Wrap</label>
+<input type="radio" name="Greek" value="Greek"></input>
+<label for="Greek"></label>
+
+<label for="Toto">Toto Wrap</label>
+<input type="radio" name="Greek" value="Toto"></input>
+<label for="Toto"></label>
+
+<p>Wednesday:</p>
+
+<label for="Red">Red Pepper Hummus</label>
+<input type="radio" name="Red" value="Red"></input>
+<label for="Red"></label>
+
+<label for="Roasted">Roasted Turkey</label>
+<input type="radio" name="Red" value="Roasted"></input>
+<label for="Roasted"></label>
+
+<p>Thursday:</p>
+
+<label for="Carrot">Carrot-Ginger Hummus Wrap</label>
+<input type="radio" name="Carrot" value="Carrot"></input>
+<label for="Carrot"></label>
+
+<label for="Egg">Egg Salad</label>
+<input type="radio" name="Carrot" value="Egg"></input>
+<label for="Egg"></label>
+
+<p>Friday:</p>
+
+<label for="Dado">Dado Wrap</label>
+<input type="radio" name="Dado" value="Dado"></input>
+<label for="Dado"></label>
+
+<label for="Tuna">Tuna Salad</label>
+<input type="radio" name="Dado" value="Tuna"></input>
+<label for="Tuna"></label>
+<br></br>
+<br></br>
+Gluten Free Bread 75c
+<input type="checkbox" name="mp1" />
+<label for="mp1"></label>
+</fieldset>
+<fieldset>
+
+<h3>Snacks:</h3>
+
+<input type="checkbox" name="mp1" />
+<label for="mp1">Apple</label>
+<input type="checkbox" name="mp2" />
+<label for="mp2">Bannana</label>
+<input type="checkbox" name="mp3" />
+<label for="mp3">Potato Chips</label>
+</fieldset>
+<br></br>
+  <br></br>
+  <h3>Drinks</h3>
+  <fieldset>
+  <label for="Pica">Regular Sized Drinks</label>
+  <select name="Pica">
+    <option value="Kafa">Coffee or Iced Coffee</option>
+    <option value="Sok od Jabuke">Organic Peppermint</option>
+    <option value="Sok od Narandze">Hot or Iced Sencha Green Tea</option>
+    <option value="Ledeni caj">Hot or Iced Keenmun Black Tea</option>
+  </select>
+
+  <input type="checkbox" name="Bubble" />
+<label for="Bubble">$1.50 extra for any regular size Bubble Tea</label>
+<input type="checkbox" name="Large" />
+<label for="Large">75c extra for Large Drink</label>
+
+</fieldset>
+
+<h3>- NO SUBBSTITUTIONS -</h3>
+<br></br>
+  <br></br>
+  <input type="submit" value="Submit"></input>
+
+</form>
+
     </div>
     </div>
     
 
    
   </div>
+
 }
 
 export default Zadatak_J4;

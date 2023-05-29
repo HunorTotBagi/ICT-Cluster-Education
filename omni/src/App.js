@@ -72,6 +72,11 @@ function App() {
           <li><Link to="lib/moduli">JS i moduli</Link></li>
           <li><Link to="lib/routes">React i Rutiranje</Link></li>
         </ul>
+        <li>Deo 3 - Napredan React</li>
+        <ul>
+          <li><Link to="lib/immer">Korišćenje biblioteke: immer</Link></li>
+          <li><Link to="lib/context">React context</Link></li>
+        </ul>
         <li> Zadaci </li>
         <ul>
           <li>

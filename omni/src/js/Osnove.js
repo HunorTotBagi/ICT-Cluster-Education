@@ -424,7 +424,7 @@ const p08_regexp = () => {
 
 const Osnove = () => {
     return <div>
-        {p01_promenljive()}
+        {p08_regexp()}
     </div>;
 };
     

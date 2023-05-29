@@ -12,8 +12,71 @@
     Lengtonov mrav je primer teoretske tvorevine poznate kao 'ćelijski automat' i ima kolosalan značaj u teoretskim računarskim naukama. Za nas je to odlična vežba veštine programiranja. 
 */
 
+const cw_turn = (o) => {
+  if(o == "N"){
+      return "E";
+  }else if(o == "E"){
+      return "S";
+  }else if(o == "S"){
+      return "W";
+  }else if(o == "W"){
+      return "N";
+  }
+}
+
+const ccw_turn = (o) => {
+  if(o == "N"){
+      return "W";
+  }else if(o == "E"){
+      return "N";
+  }else if(o == "S"){
+      return "E";
+  }else if(o == "W"){
+      return "S";
+  }
+}
+
+const move_ahead = (pos, o) => {
+  if(o == "N"){
+      return {x: pos.x, y: pos.y + 1};
+  }else if(o == "E"){
+      return {x: pos.x + 1, y: pos.y};
+  }else if(o == "S"){
+      return {x: pos.x, y: pos.y - 1};
+  }else if(o == "W"){
+      return {x: pos.x - 1, y: pos.y};
+  }
+}
+
+const mrav = (pos, o, g) => {
+  let tabla = new Set();//Nema u set-u znači crno, ima, znači belo. 
+  for(let i = 0; i < g; i++){
+      if(tabla.has(`${pos.x},${pos.y}`)){
+          //belo
+          o = cw_turn(o);
+          tabla.delete(`${pos.x},${pos.y}`);
+          pos = move_ahead(pos, o);
+      }else{
+          //crno
+          o = ccw_turn(o);
+          tabla.add(`${pos.x},${pos.y}`);
+          pos = move_ahead(pos, o);
+      }
+  }
+  return {
+      pos: pos,
+      orientation: o
+  };
+
+}
+
 const JSV10 = () => {
-  return <div></div>;
+  let m = mrav({x: 0, y: 0}, "N", 4000);
+  return <div>
+      <pre>
+          {JSON.stringify(m)}
+      </pre>
+  </div>;
 };
 
 export default JSV10;
