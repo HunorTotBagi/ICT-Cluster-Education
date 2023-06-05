@@ -76,6 +76,8 @@ function App() {
         <ul>
           <li><Link to="lib/immer">Korišćenje biblioteke: immer</Link></li>
           <li><Link to="lib/context">React context</Link></li>
+          <li><Link to="lib/reducer">React reducer</Link></li>
+          <li><Link to="lib/memo">React memo</Link></li>
         </ul>
         <li> Zadaci </li>
         <ul>

@@ -60,6 +60,8 @@ import BookError2 from "./lib_examples/BookError2";
 import SearchExample from "./jsx_examples/SearchExample";
 import ImmerExample from "./lib_examples/ImmerExample";
 import Context from "./lib_examples/Context";
+import Reducer from "./lib_examples/Reducer";
+import Memo from "./lib_examples/Memo";
 
 /*
   Ovo je mesto gde se prave _rute_ u našoj aplikaciji. Ideja je sledeća:
@@ -367,6 +369,14 @@ const router = createBrowserRouter([
   {
     path:"lib/context",
     element: <Context/>
+  },
+  {
+    path: "lib/reducer",
+    element: <Reducer/>
+  },
+  {
+    path: "lib/memo",
+    element: <Memo/>
   }
 ]);
 
