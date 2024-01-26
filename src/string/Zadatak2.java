@@ -14,5 +14,4 @@ public class Zadatak2 {
 		System.out.println("Pakovani string: " + rezultat);
 
 	}
-
 }
