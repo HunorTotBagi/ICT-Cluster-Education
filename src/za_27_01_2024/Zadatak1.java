@@ -1,18 +1,37 @@
 package za_27_01_2024;
 
-import if_selekcija.TextIO;
-
 public class Zadatak1 {
 
 	public static void main(String[] args) {
-		
-		double numberOfStudents = 0;
-		double average = 0;
-		
-		System.out.println("Enter number of students: ");
-		numberOfStudents = TextIO.getlnInt();
-		
-		//while (numberOfStudents < 1 || )
+
+		int summ = 0;
+		int counter = 0;
+		int lowerBound = 1;
+		int upperBound = 160;
+
+		while (true) {
+			System.out.println("Enter number of students: ");
+			int input = TextIO.getInt();
+
+			if (input == 0) {
+				break;
+			}
+
+			if (input < lowerBound || upperBound < input) {
+				System.out.printf("Invalid input. Number of studens has to be in range %d to %d.", lowerBound,
+						upperBound);
+				continue;
+			}
+
+			summ += input;
+			counter++;
+		}
+		if (summ == 0) {
+			System.out.println("You entered zero students.");
+		} else {
+			double result = summ / counter;
+			System.out.printf("Average number of studens in a year: %f", result);
+		}
 
 	}
 }
