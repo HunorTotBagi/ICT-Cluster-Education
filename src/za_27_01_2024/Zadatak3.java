@@ -3,7 +3,10 @@ package za_27_01_2024;
 public class Zadatak3 {
 
 	public static void main(String[] args) {
-
+		
+		int lowerBound = -10;
+		int upperBound = 100;
+		
 		System.out.print("Enter N: ");
 		int N = TextIO.getInt();
 		
@@ -16,10 +19,10 @@ public class Zadatak3 {
 				System.out.printf("Enter number %d: ", i);
 				input = TextIO.getInt();
 
-				if (input < -10 || 100 < input) {
-					System.out.println("Invalid input. Enter a number between -10 and 100.");
+				if (input < lowerBound || upperBound < input) {
+					System.out.printf("Invalid input. Enter a number between %d and %d.%n", lowerBound, upperBound);
 				}
-			} while (input < -10 || 100 < input);
+			} while (input < lowerBound || upperBound < input);
 
 			if (input < minimum) {
 				minimum = input;

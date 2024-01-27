@@ -8,17 +8,18 @@ public class Zadatak1 {
 		int counter = 0;
 		int lowerBound = 1;
 		int upperBound = 160;
+		int exitCondition = 0;
 
 		while (true) {
 			System.out.println("Enter number of students: ");
 			int input = TextIO.getInt();
 
-			if (input == 0) {
+			if (input == exitCondition) {
 				break;
 			}
 
 			if (input < lowerBound || upperBound < input) {
-				System.out.printf("Invalid input. Number of studens has to be in range %d to %d.", lowerBound,
+				System.out.printf("Invalid input. Number of studens has to be in range %d to %d.%n", lowerBound,
 						upperBound);
 				continue;
 			}
@@ -32,6 +33,5 @@ public class Zadatak1 {
 			double result = summ / counter;
 			System.out.printf("Average number of studens in a year is: %f", result);
 		}
-
 	}
 }
