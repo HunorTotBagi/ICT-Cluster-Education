@@ -6,6 +6,8 @@ public class Zadatak4 {
 
 		int sum = 0;
 		int counter = 0;
+		int lowerBound = 5;
+		int upperBound = 10;
 
 		while (true) {
 			System.out.print("Enter a grade: ");
@@ -15,8 +17,8 @@ public class Zadatak4 {
 				break;
 			}
 
-			if (grade < 5 || 10 < grade) {
-				System.out.println("Invalid input. Grade has to be in range 5 to 10.");
+			if (grade < lowerBound || upperBound < grade) {
+				System.out.printf("Invalid input. Grade has to be in range %d to %d.", lowerBound, upperBound);
 				continue;
 			}
 

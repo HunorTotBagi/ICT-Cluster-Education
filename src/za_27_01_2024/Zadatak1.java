@@ -30,7 +30,7 @@ public class Zadatak1 {
 			System.out.println("You entered zero students.");
 		} else {
 			double result = summ / counter;
-			System.out.printf("Average number of studens in a year: %f", result);
+			System.out.printf("Average number of studens in a year is: %f", result);
 		}
 
 	}

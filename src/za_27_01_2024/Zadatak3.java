@@ -3,8 +3,10 @@ package za_27_01_2024;
 public class Zadatak3 {
 
 	public static void main(String[] args) {
+
 		System.out.print("Enter N: ");
 		int N = TextIO.getInt();
+		
 		double minimum = Double.POSITIVE_INFINITY;
 
 		for (int i = 1; i <= N; i++) {

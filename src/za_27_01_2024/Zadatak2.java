@@ -17,7 +17,7 @@ public class Zadatak2 {
 			}
 
 			if (input < lowerBound || upperBound < input) {
-				System.out.printf("Invalid input. Grade has to be in range %d to %d.", lowerBound, upperBound);
+				System.out.printf("Invalid input. Number has to be in range %d to %d.", lowerBound, upperBound);
 				continue;
 			}
 
