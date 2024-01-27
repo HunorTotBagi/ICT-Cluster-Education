@@ -8,17 +8,18 @@ public class Zadatak4 {
 		int counter = 0;
 		int lowerBound = 5;
 		int upperBound = 10;
+		int exitCondition = 0;
 
 		while (true) {
 			System.out.print("Enter a grade: ");
 			int grade = TextIO.getInt();
 
-			if (grade == 0) {
+			if (grade == exitCondition) {
 				break;
 			}
 
 			if (grade < lowerBound || upperBound < grade) {
-				System.out.printf("Invalid input. Grade has to be in range %d to %d.", lowerBound, upperBound);
+				System.out.printf("Invalid input. Grade has to be in range %d to %d.%n", lowerBound, upperBound);
 				continue;
 			}
 

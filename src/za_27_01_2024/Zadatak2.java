@@ -7,12 +7,13 @@ public class Zadatak2 {
 		int counter = 0;
 		int lowerBound = 6;
 		int upperBound = 142;
+		int exitCondition = -1;
 
 		while (true) {
 			System.out.println("Enter a number: ");
 			int input = TextIO.getInt();
 
-			if (input == -1) {
+			if (input == exitCondition) {
 				break;
 			}
 

@@ -19,7 +19,7 @@ public class Zadatak5 {
 				input = TextIO.getInt();
 
 				if (input < lowerBound || input > upperBound) {
-					System.out.println("Invalid input. ");
+					System.out.println("Invalid input.%n");
 				}
 
 			} while (input < lowerBound || input > upperBound);
