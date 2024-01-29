@@ -4,8 +4,8 @@ public class Zadatak2_matrica_primer {
 
 	public static void main(String[] args) {
 
-		int upperBoundRows = 10;
-		int upperBoundCols = 20;
+		final int upperBoundRows = 10;
+		final int upperBoundCols = 20;
 
 		System.out.println("Enter how many rows will your matrix have: ");
 		int rows;
@@ -46,7 +46,7 @@ public class Zadatak2_matrica_primer {
 			}
 		}
 
-		System.out.printf("Summ of all elements in the matrix is: %d %n", summOfElements);
+		System.out.printf("Summ of all elements in the matrix is: %d %n", summOfElements / (rows * cols));
 
 		int[] sumOfRows = new int[rows];
 
