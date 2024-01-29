@@ -12,8 +12,8 @@ public class Zadatak3_nizovi {
 			maxNumberOfElements = TextIO.getlnInt();
 		}
 
-		int counterA = 0;
-		int counterB = 0;
+		int counterEven = 0;
+		int counterOdd = 0;
 		int[] array = new int[maxNumberOfElements];
 		int[] oddArray = new int[maxNumberOfElements];
 		int[] evenArray = new int[maxNumberOfElements];
@@ -23,11 +23,11 @@ public class Zadatak3_nizovi {
 			array[i] = TextIO.getlnInt();
 
 			if (array[i] % 2 == 0) {
-				evenArray[counterA] = array[i];
-				counterA++;
+				evenArray[counterEven] = array[i];
+				counterEven++;
 			} else {
-				oddArray[counterB] = array[i];
-				counterB++;
+				oddArray[counterOdd] = array[i];
+				counterOdd++;
 			}
 		}
 
