@@ -46,7 +46,7 @@ public class Zadatak2_matrica_primer {
 			}
 		}
 
-		System.out.printf("Summ of all elements in the matrix is: %d %n", summOfElements / (rows * cols));
+		System.out.printf("Average value of all elements in the matrix is: %d %n", summOfElements / (rows * cols));
 
 		int[] sumOfRows = new int[rows];
 
