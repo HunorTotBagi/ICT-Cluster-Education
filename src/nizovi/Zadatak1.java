@@ -18,7 +18,6 @@ public class Zadatak1 {
 
 		double sum = 0;
 		double max = Double.NEGATIVE_INFINITY;
-		//int maxIndex = 0;
 
 		double[] array = new double[N];
 
@@ -29,15 +28,14 @@ public class Zadatak1 {
 
 			if (array[i] > max) {
 				max = array[i];
-				//maxIndex = i;
 			}
 		}
 
-		System.out.println("");
+		System.out.println("---------------------------------------------");
 		System.out.printf("Sum of all elements in the array is: %f%n", sum);
-		System.out.printf("Maximum number is %f.", max);
+		System.out.printf("Maximum number is %f.%n", max);
 
-		System.out.println("");
+		System.out.println("---------------------------------------------");
 		for (int i = 0; i < N; i++) {
 			if (array[i] == max) {
 				System.out.printf("On position %d there is a maximum element.%n", i);
