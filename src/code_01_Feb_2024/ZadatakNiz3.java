@@ -1,9 +1,11 @@
-package nizovi;
+package code_01_Feb_2024;
 
-public class Zadatak5_nizovi {
+import nizovi.TextIO;
+
+public class ZadatakNiz3 {
 
 	public static void main(String[] args) {
-
+		
 		final int upperBound = 20;
 		int input = -1;
 
