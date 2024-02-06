@@ -4,9 +4,9 @@ public class Zadatak1 {
 
 	public static void main(String[] args) {
 
-		int condition = -1;
+		int exitCondition = -1;
 
-		while (condition != 0) {
+		while (exitCondition != 0) {
 
 			System.out.println("Enter the first number: ");
 			int firstNumber = TextIO.getlnInt();
@@ -44,7 +44,7 @@ public class Zadatak1 {
 			}
 			
 			System.out.println("If you want to exit press 0, if you want to continue enter any number that's not 0.");
-			condition = TextIO.getlnInt();
+			exitCondition = TextIO.getlnInt();
 		}
 
 	}
