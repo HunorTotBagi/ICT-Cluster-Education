@@ -14,8 +14,8 @@ public class Primer3Vezba3 {
 
 		String[] firstNameArray = new String[input];
 		String[] lastNameArray = new String[input];
-		int[] JMBGArray = new int[input];
 		String[] cityArray = new String[input];
+		int[] JMBGArray = new int[input];
 
 		for (int i = 0; i < input; i++) {
 			readFirstName(firstNameArray, i);
@@ -24,8 +24,12 @@ public class Primer3Vezba3 {
 			readCity(cityArray, i);
 		}
 
-		System.out.println("Enter 'A' for sorting JMBG by ascending order or 'D' for descending: ");
-		char sortingCriteria = TextIO.getlnChar();
+		char sortingCriteria;
+		do {
+			System.out.println("Enter 'A' for sorting JMBG by ascending order or 'D' for descending: ");
+			sortingCriteria = TextIO.getlnChar();
+		} while (sortingCriteria != 'A' && sortingCriteria != 'D');
+		
 
 		if (sortingCriteria == 'A') {
 			sortByAscendingOrder(firstNameArray, lastNameArray, JMBGArray, cityArray);
