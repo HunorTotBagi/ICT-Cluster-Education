@@ -15,7 +15,7 @@ public class KompleksniZadaci1 {
 			System.out.println(
 					"Press 4 to: (NOT IMPLEMENTED YET) Display of results sorted by days of the month for the selected category.");
 			System.out.println(
-					"Press 5 to: (NOT IMPLEMENTED YET) Calculate and display the day when the lowest income was achieved and how much it amounts to.");
+					"Press 5 to: Calculate and display the day when the lowest income was achieved and how much it amounts to.");
 			System.out.println(
 					"Press 6 to: (NOT IMPLEMENTED YET) Calculate and display the total monthly income for each category of insurance.");
 			System.out.println("Press 7 to: (NOT IMPLEMENTED YET) Calculate and display the average monthly income.");
