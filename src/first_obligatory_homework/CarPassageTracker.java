@@ -43,8 +43,7 @@ public class CarPassageTracker {
 		System.out.println("1) Enter the number of cars that passed for a given day and ramp.");
 		System.out.println("2) Display of the total number of cars that passed through the selected ramp.");
 		System.out.println("3) Display days where the total number of cars passed exceeds a specified threshold.");
-		System.out
-				.println("4) Calculate and display the total number of cars that passed through the ramps this month.");
+		System.out.println("4) Calculate and display the total number of cars that passed through the ramps this month.");
 	}
 
 	private static void enterCarsPassed(int[][] matrix) {
