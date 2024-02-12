@@ -37,16 +37,15 @@ public class Test {
 
 		Computer[] computerArray = new Computer[] { fifthComputer, firstComputer, fourthComputer, secondComputer, thirdComputer };
 
-		bubbleSortDescending(computerArray);
+		sortByDescendingOrder(computerArray);
 
 		System.out.println("Performance index in descending order: ");
 		for (int i = 0; i < 5; i++) {
-			System.out.printf("%s have performance index: %f %n", computerArray[i].processor,
-					computerArray[i].performanceIndex);
+			System.out.printf("%s have performance index: %f %n", computerArray[i].processor, computerArray[i].performanceIndex);
 		}
 	}
 
-	private static void bubbleSortDescending(Computer[] array) {
+	private static void sortByDescendingOrder(Computer[] array) {
 		for (int j = 1; j < array.length; j++) {
 			for (int i = 0; i < array.length - j; i++) {
 				if (array[i].performanceIndex < array[i + 1].performanceIndex) {
