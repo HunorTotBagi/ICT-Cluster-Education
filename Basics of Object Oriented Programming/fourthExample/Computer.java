@@ -17,9 +17,8 @@ public class Computer {
 		memoryCapacity = input;
 	}
 	
-	double getPerformanceIndex() {
+	void getPerformanceIndex() {
 		performanceIndex = 10 * workingTact + memoryCapacity;
-		return performanceIndex;
 	}
 	
 	void displayPerformanceIndex() {
