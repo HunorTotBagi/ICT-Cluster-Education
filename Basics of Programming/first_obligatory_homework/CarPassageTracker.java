@@ -4,10 +4,9 @@ public class CarPassageTracker {
 
 	private static final int MAX_DAYS = 30;
 	private static final int MAX_RAMPS = 10;
+	private static int[][] carMatrix = new int[MAX_DAYS][MAX_RAMPS];
 
 	public static void main(String[] args) {
-
-		int[][] carPassagesMatrix = new int[MAX_DAYS][MAX_RAMPS];
 
 		int input;
 		do {
@@ -16,16 +15,16 @@ public class CarPassageTracker {
 
 			switch (input) {
 			case 1:
-				enterCarsPassed(carPassagesMatrix);
+				enterCarsPassed();
 				break;
 			case 2:
-				displayTotalCarsPassed(carPassagesMatrix);
+				displayTotalCarsPassed();
 				break;
 			case 3:
-				displayDaysExceedingThreshold(carPassagesMatrix);
+				displayDaysExceedingThreshold();
 				break;
 			case 4:
-				getTotalNumberOfCarsInMonth(carPassagesMatrix);
+				getTotalNumberOfCarsInMonth();
 				break;
 			default:
 				if (input != 0) {
@@ -46,26 +45,26 @@ public class CarPassageTracker {
 		System.out.println("4) Calculate and display the total number of cars that passed through the ramps this month.");
 	}
 
-	private static void enterCarsPassed(int[][] matrix) {
+	private static void enterCarsPassed() {
 		int day = getValidInput("Enter the day: ", 1, MAX_DAYS);
 		int ramp = getValidInput("Enter the ramp: ", 1, MAX_RAMPS);
 		int cars = getValidInput("Enter the number of cars: ", 0, 2147483647);
 
-		matrix[day - 1][ramp - 1] = cars;
+		carMatrix[day - 1][ramp - 1] = cars;
 		System.out.printf("Successfully entered %d passed cars on day %d at ramp %d.%n", cars, day, ramp);
 	}
 
-	private static void displayTotalCarsPassed(int[][] matrix) {
+	private static void displayTotalCarsPassed() {
 		int chosenRamp = getValidInput("Enter the ramp number: ", 1, MAX_RAMPS);
 
 		int totalCars = 0;
 		for (int i = 0; i < MAX_DAYS; i++) {
-			totalCars += matrix[i][chosenRamp - 1];
+			totalCars += carMatrix[i][chosenRamp - 1];
 		}
 		System.out.printf("Total %d cars passed on ramp %d. %n", totalCars, chosenRamp);
 	}
 
-	private static void displayDaysExceedingThreshold(int[][] matrix) {
+	private static void displayDaysExceedingThreshold() {
 		System.out.println("Enter the threshold number of cars: ");
 		int threshold = TextIO.getlnInt();
 		boolean hasPassedThreshold = false;
@@ -73,7 +72,7 @@ public class CarPassageTracker {
 		for (int i = 0; i < MAX_DAYS; i++) {
 			int totalCars = 0;
 			for (int j = 0; j < MAX_RAMPS; j++) {
-				totalCars += matrix[i][j];
+				totalCars += carMatrix[i][j];
 			}
 			if (totalCars > threshold) {
 				System.out.printf("On day %d, %d cars passed. %n", i + 1, totalCars);
@@ -84,11 +83,11 @@ public class CarPassageTracker {
 			System.out.println("There are no days where to total number of cars pass the given threshold.");
 	}
 
-	private static void getTotalNumberOfCarsInMonth(int[][] matrix) {
+	private static void getTotalNumberOfCarsInMonth() {
 		int totalCars = 0;
 		for (int i = 0; i < MAX_DAYS; i++) {
 			for (int j = 0; j < MAX_RAMPS; j++) {
-				totalCars += matrix[i][j];
+				totalCars += carMatrix[i][j];
 			}
 		}
 		System.out.printf("Total %d cars passed this month on all ramps. %n", totalCars);
