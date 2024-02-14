@@ -1,27 +1,39 @@
 package fourthExample;
 
 public class Computer {
-	String processor;
-	double workingTact, performanceIndex;
-	int memoryCapacity;
+	private String processor;
+	private double workingTact;
+	private int memoryCapacity;
 	
-	void setProcessorName(String input) {
-		processor = input;
+	public void setProcessorName(String input) {
+		this.processor = input;
 	}
 	
-	void setWorkingTact(double input) {
-		workingTact = input;
+	public String getProcessorName() {
+		return this.processor;
 	}
 	
-	void setMemoryCapacity(int input) {
-		memoryCapacity = input;
+	public void setWorkingTact(double input) {
+		this.workingTact = input;
 	}
 	
-	void getPerformanceIndex() {
-		performanceIndex = 10 * workingTact + memoryCapacity;
+	public double getWorkingTact() {
+		return this.workingTact;
 	}
 	
-	void displayPerformanceIndex() {
-		System.out.printf("Performance index is: %f ", performanceIndex);
+	public void setMemoryCapacity(int input) {
+		this.memoryCapacity = input;
+	}
+	
+	public int getMemoryCapacity() {
+		return this.memoryCapacity;
+	}
+	
+	public double getPerformanceIndex() {
+		return 10 * this.getWorkingTact() + this.getMemoryCapacity();
+	}
+	
+	public void displayPerformanceIndex() {
+		System.out.printf("Performance index is: %f ", this.getPerformanceIndex());
 	}
 }

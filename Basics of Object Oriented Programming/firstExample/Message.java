@@ -1,13 +1,17 @@
 package firstExample;
 
 public class Message {
-	String text;
+	private String text;
 
-	void setText(String input) {
-		text = input;
+	public void setText(String input) {
+		this.text = input;
 	}
 
-	void displayText() {
-		System.out.println(text);
+	public void displayText() {
+		System.out.println(this.getText());
+	}
+	
+	public String getText() {
+		return this.text;
 	}
 }

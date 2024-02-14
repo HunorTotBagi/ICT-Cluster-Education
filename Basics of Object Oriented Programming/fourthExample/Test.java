@@ -42,14 +42,14 @@ public class Test {
 		System.out.println("Performance index in descending order: ");
 		System.out.println("");
 		for (int i = 0; i < 5; i++) {
-			System.out.printf("%s have performance index: %f %n", computerArray[i].processor, computerArray[i].performanceIndex);
+			System.out.printf("%s have performance index: %f %n", computerArray[i].getProcessorName(), computerArray[i].getPerformanceIndex());
 		}
 	}
 
 	private static void sortByDescendingOrder(Computer[] array) {
 		for (int j = 1; j < array.length; j++) {
 			for (int i = 0; i < array.length - j; i++) {
-				if (array[i].performanceIndex < array[i + 1].performanceIndex) {
+				if (array[i].getPerformanceIndex() < array[i + 1].getPerformanceIndex()) {
 					swap(array, i);
 				}
 			}
