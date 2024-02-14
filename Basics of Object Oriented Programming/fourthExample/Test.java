@@ -40,6 +40,7 @@ public class Test {
 		sortByDescendingOrder(computerArray);
 
 		System.out.println("Performance index in descending order: ");
+		System.out.println("");
 		for (int i = 0; i < 5; i++) {
 			System.out.printf("%s have performance index: %f %n", computerArray[i].processor, computerArray[i].performanceIndex);
 		}
