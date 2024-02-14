@@ -48,8 +48,25 @@ public class CarPassageTracker {
 	private static void enterCarsPassed() {
 		int day = getValidInput("Enter the day: ", 1, MAX_DAYS);
 		int ramp = getValidInput("Enter the ramp: ", 1, MAX_RAMPS);
-		int cars = getValidInput("Enter the number of cars: ", 0, 2147483647);
 
+		int carPasses = carMatrix[day - 1][ramp - 1];
+		if (carPasses > 0) {
+			overrideCarPasses(day, ramp, carPasses);
+		}
+		else {
+			inputCarPasses(day, ramp);
+		}
+	}
+
+	private static void inputCarPasses(int day, int ramp) {
+		int cars = getValidInput("Enter the number of cars: ", 0, 2147483647);
+		carMatrix[day - 1][ramp - 1] = cars;
+		System.out.printf("Successfully entered %d passed cars on day %d at ramp %d.%n", cars, day, ramp);
+	}
+
+	private static void overrideCarPasses(int day, int ramp, int carPasses) {
+		System.out.printf("On day %d and ramp %d there already passed %d cars. ", day, ramp, carPasses);
+		int cars = getValidInput("Enter again the number of cars (previous data will be overriden by new entry): ", 0, 2147483647);
 		carMatrix[day - 1][ramp - 1] = cars;
 		System.out.printf("Successfully entered %d passed cars on day %d at ramp %d.%n", cars, day, ramp);
 	}
