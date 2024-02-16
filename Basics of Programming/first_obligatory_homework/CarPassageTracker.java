@@ -25,6 +25,7 @@ public class CarPassageTracker {
 				break;
 			case 4:
 				getTotalNumberOfCarsInMonth();
+				displayRampTraffic();
 				break;
 			default:
 				if (input != 0) {
@@ -55,10 +56,11 @@ public class CarPassageTracker {
 		else
 			inputCarPasses(day, ramp);
 	}
-	
+
 	private static void overrideCarPasses(int day, int ramp, int carPasses) {
 		System.out.printf("On day %d and ramp %d there already passed %d cars. ", day, ramp, carPasses);
-		int cars = getValidInput("Enter again the number of cars (previous data will be overriden by new entry): ", 0, 2147483647);
+		int cars = getValidInput("Enter again the number of cars (previous data will be overriden by new entry): ", 0,
+				2147483647);
 		carMatrix[day - 1][ramp - 1] = cars;
 		System.out.printf("Successfully entered %d passed cars on day %d at ramp %d.%n", cars, day, ramp);
 	}
@@ -106,6 +108,16 @@ public class CarPassageTracker {
 			}
 		}
 		System.out.printf("Total %d cars passed this month on all ramps. %n", totalCars);
+	}
+
+	private static void displayRampTraffic() {
+		int[] array = new int[MAX_RAMPS];
+		for (int i = 0; i < MAX_RAMPS; i++) {
+			for (int j = 0; j < MAX_DAYS; j++) {
+				array[i] += carMatrix[j][i];
+			}
+			System.out.printf("This month on ramp %d total %d cars passed. %n", i+1, array[i]);
+		}
 	}
 
 	private static int getValidInput(String message, int lowerLimit, int upperLimit) {
