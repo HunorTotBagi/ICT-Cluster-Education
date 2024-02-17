@@ -3,15 +3,15 @@ package inheritance2;
 public class Person {
 	protected String firstName, lastName;
 	protected int age;
-	
+
 	public Person() {}
-	
+
 	public Person(String firstName, String lastName, int age) {
 		this.setFirstName(firstName);
 		this.setLastName(lastName);
 		this.setAge(age);
 	}
-	
+
 	public void printPersonData() {
 		System.out.printf("\nFirst name: %s %n", this.getFirstName());
 		System.out.printf("Last name: %s %n", this.getLastName());

@@ -6,6 +6,11 @@ public class Shape {
 	protected double area;
 
 	public Shape() {}
+	
+	public Shape(String color, String type) {
+		this.setColor(color);
+		this.setType(type);
+	}
 
 	public Shape(String color, String type, int numberOfSides) {
 		this.setColor(color);
@@ -13,13 +18,14 @@ public class Shape {
 		this.setNumberOfSides(numberOfSides);
 	}
 
-	public void changeColor(String newColor) {
-		this.setColor(newColor);
+	public void changeColor(String inputColor) {
+		System.out.printf("Color change for %s in progress...%n", this.getType());
+		this.setColor(inputColor);
 	}
 
-	public void printData() {
-		System.out.printf("Color: %s | Shape: %s | Number of sides: %d | Area: %f %n", this.getColor(), this.getType(),
-				this.getNumberOfSides(), this.getArea());
+	public void displayData() {
+		System.out.printf("Color: %s | Shape: %s | Number of sides: %d %n", this.getColor(), this.getType(),
+				this.getNumberOfSides());
 	}
 
 	public String getColor() {

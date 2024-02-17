@@ -3,7 +3,6 @@ package inheritance4vehicles;
 public class Test {
 
 	public static void main(String[] args) {
-
 		Person firstPerson = new Person("Hunor", "Tot-Bagi", 31);
 		Person secondPerson = new Person("Nikola", "Nikolic", 27);
 		Person thirdPerson = new Person("Marko", "Markovic", 40);

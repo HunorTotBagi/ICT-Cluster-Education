@@ -9,20 +9,18 @@ public class Client extends Person {
 	}
 
 	public void displayMoney() {
-		System.out.printf("%s %s have %.2f Dollars on account. %n", this.getFirstName(), this.getLastName(),
-				this.getAccountBalance());
+		System.out.printf("%s %s have %.2f Dollars on account. %n", this.getFirstName(), this.getLastName(), this.getAccountBalance());
 	}
 
 	public void sendMoney(double money, Client receiver) {
 		if (this.getAccountBalance() < money) {
 			sendingMoneyMessage(money, receiver);
-			System.out.printf("\nYou don't have this much money on your account.%n %n");
+			System.out.printf("\nTransaction failed! You don't have this much money on your account. %n %n");
 		} else {
 			this.setAccountBalance(this.getAccountBalance() - money);
 			receiver.setAccountBalance(receiver.getAccountBalance() + money);
 			sendingMoneyMessage(money, receiver);
-			System.out.printf("\n%.2f Dollars has been sent to %s %s.%n %n", money, receiver.getFirstName(),
-					receiver.getLastName());
+			System.out.printf("\n%.2f Dollars has been sent to %s %s. %n %n", money, receiver.getFirstName(), receiver.getLastName());
 		}
 	}
 

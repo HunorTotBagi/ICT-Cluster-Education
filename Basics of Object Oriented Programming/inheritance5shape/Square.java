@@ -5,13 +5,17 @@ public class Square extends Shape {
 
 	public Square() {}
 
-	public Square(String color, String type, int numberOfSides, double sideLength) {
-		super(color, type, numberOfSides);
+	public Square(String color, String type, double sideLength) {
+		super(color, type);
 		this.setSideLength(sideLength);
 	}
 
 	public void calculateArea() {
 		this.setArea(this.getSideLength() * this.getSideLength());
+	}
+	
+	public void displayData() {
+		System.out.printf("Color: %s | Shape: %s | Area: %.2f %n", this.getColor(), this.getType(), this.getArea());
 	}
 
 	public double getSideLength() {
