@@ -1,7 +1,7 @@
 package clientBank;
 
 public class Client {
-	private String firstName, lastName,email, accountNumber, clientType;
+	private String firstName, lastName, email, accountNumber, clientType;
 	private double accountBalance;
 
 	public Client() {

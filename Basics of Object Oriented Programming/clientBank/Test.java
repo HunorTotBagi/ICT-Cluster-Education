@@ -3,8 +3,8 @@ package clientBank;
 public class Test {
 
 	public static void main(String[] args) {
-		Client firstClient = new Client("Hunor", "Tot-Bagi", "hunortotbagi@gmail.com", "32154818654613", "legal entity", 500);
 		
+		Client firstClient = new Client("Hunor", "Tot-Bagi", "hunortotbagi@gmail.com", "32154818654613", "legal entity", 500);
 		Client secondClient = new Client("Nikola", "Nikolic", "nikola.nikolic@gmail.com", "52154808654113", "legal entity", 850);
 		
 		firstClient.displayAccountBalance();
