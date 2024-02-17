@@ -24,8 +24,7 @@ public class Shape {
 	}
 
 	public void displayData() {
-		System.out.printf("Color: %s | Shape: %s | Number of sides: %d %n", this.getColor(), this.getType(),
-				this.getNumberOfSides());
+		System.out.printf("Color: %s | Shape: %s | Number of sides: %d %n", this.getColor(), this.getType(), this.getNumberOfSides());
 	}
 
 	public String getColor() {
