@@ -5,13 +5,13 @@ public class Motocycle extends Vehicle {
 
 	public Motocycle() {}
 
-	public Motocycle(String brand, String type, String registration, int year, Person owner, Boolean registered) {
+	public Motocycle(String brand, String type, String registration, int year, Person owner, Boolean registered, int power) {
 		super(brand, type, registration, year, owner);
 		this.registered = registered;
 	}
 
 	public void printMotocycleData() {
-		System.out.printf("Owner: %s %s - %s %s %s %d - Motorcycle registered: %b %n", this.getOwner().getFirstName(),
+		System.out.printf("Owner: %s %s - %s %s %s %d - Motorcycle registered: %b AND %n", this.getOwner().getFirstName(),
 				this.getOwner().getLastName(), this.getBrand(), this.getType(), this.getRegistration(), this.getYear(),
 				this.getRegistered());
 	}

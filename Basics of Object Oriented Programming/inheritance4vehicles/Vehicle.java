@@ -4,6 +4,7 @@ public class Vehicle {
 	protected String brand, type, registration;
 	protected int year;
 	protected Person owner;
+	protected Motocycle powerUnit;
 
 	public Vehicle() {}
 

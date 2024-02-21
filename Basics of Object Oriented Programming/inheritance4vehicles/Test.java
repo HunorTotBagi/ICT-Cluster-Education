@@ -12,8 +12,8 @@ public class Test {
 
 		Car firstCar = new Car("Ford", "SUV", "XYZ456", 2018, secondPerson, 4);
 		Truck firstTruck = new Truck("Ford", "Pickup", "ABC123", 2015, thirdPerson, 8);
-		Motocycle firstMotocycle = new Motocycle("Harley-Davidson", "Cruiser", "DEF789", 2020, firstPerson, true);
-		Motocycle secondMotocycle = new Motocycle("Kawasaki", "xyz", "DEF789", 2020, thirdPerson, true);
+		Motocycle firstMotocycle = new Motocycle("Harley-Davidson", "Cruiser", "DEF789", 2020, firstPerson, true, 200);
+		Motocycle secondMotocycle = new Motocycle("Kawasaki", "xyz", "DEF789", 2020, thirdPerson, true, 800);
 
 		firstVehicle.printVehicleData();
 		secondVehicle.printVehicleData();
