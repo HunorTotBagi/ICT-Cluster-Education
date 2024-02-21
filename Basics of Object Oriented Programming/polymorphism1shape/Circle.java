@@ -11,15 +11,15 @@ public class Circle extends Shape {
 	}
 
 	public void calculateArea() {
-		this.setArea(Math.PI * this.getRadius() * this.getRadius());
+		this.setArea(this.getRadius() * this.getRadius() * Math.PI);
 	}
-	
+
 	public void calculateCircumference() {
 		this.setCircumference(2 * Math.PI * this.getRadius());
 	}
 
 	public void displayData() {
-		System.out.printf("Color: %s | Shape: %s | Area: %.2f | Circumference: %.2f %n", this.getColor(), this.getType(), this.getArea(), this.getCircumference());
+		System.out.printf("Shape: %s | Color: %s | Area: %.2f | Circumference: %.2f %n", this.getType(), this.getColor(), this.getArea(), this.getCircumference());
 	}
 
 	public double getRadius() {

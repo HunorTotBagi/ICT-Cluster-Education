@@ -1,15 +1,15 @@
 package polymorphism2woman;
 
-public class Woman extends Person{
+public class Woman extends Person {
 	private String maidenName;
-	
-	public Woman(){}
-	
+
+	public Woman() {}
+
 	public Woman(String firstName, String lastName, int age, String maidenName) {
 		super(firstName, lastName, age);
 		this.setMaidenName(maidenName);
 	}
-	
+
 	public void printPersonData() {
 		System.out.printf("\nFirst name: %s %n", this.getFirstName());
 		System.out.printf("Last name: %s %n", this.getLastName());

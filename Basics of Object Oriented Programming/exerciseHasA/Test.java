@@ -3,15 +3,12 @@ package exerciseHasA;
 public class Test {
 
 	public static void main(String[] args) {
-		Employee zakonskiCovek = new Employee("Imenko", "Prezimenkovic", 34, 5);
-		Institucija pmf = new Institucija("PMF", "Adress 1", "0001", zakonskiCovek);
+		Employee legalPerson = new Employee("Nikola", "Nikolic", 34, 5);
+		Institution facultyOfSciences = new Institution("Faculty of Sciences", "Trg Dositeja Obradovića 3", "08104620", legalPerson);
 		
+		facultyOfSciences.addClassroom("A1", "Computer room", 10, 30);
+		facultyOfSciences.addEmployee("Isaac", "Newton", 50, 999);
 		
-		pmf.dodajUcionicu("oznaka", "Racunarska", 5, 30);
-		pmf.dodajZaposleni("Isaac", "Newton", 50, 999);
-		
-		pmf.printArray();
-
+		facultyOfSciences.printArray();
 	}
-
 }

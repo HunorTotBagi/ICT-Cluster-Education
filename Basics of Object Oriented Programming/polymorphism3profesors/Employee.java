@@ -18,7 +18,7 @@ public class Employee extends Person {
 	public void displaySalary() {
 		System.out.printf("%s %s have salary of %.2f Dollars. %n", this.firstName, this.lastName, this.salary);
 	}
-	
+
 	public void printPersonData() {
 		System.out.printf("First name: %s %n", this.getFirstName());
 		System.out.printf("Last name: %s %n", this.getLastName());

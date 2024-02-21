@@ -6,7 +6,7 @@ public class Shape {
 	protected double area, circumference;
 
 	public Shape() {}
-	
+
 	public Shape(String color, String type) {
 		this.setColor(color);
 		this.setType(type);
@@ -24,7 +24,8 @@ public class Shape {
 	}
 
 	public void displayData() {
-		System.out.printf("Color: %s | Shape: %s | Number of sides: %d %n", this.getColor(), this.getType(), this.getNumberOfSides());
+		System.out.printf("Shape: %s | Color: %s | Number of sides: %d %n", this.getType(), this.getColor(),
+				this.getNumberOfSides());
 	}
 
 	public String getColor() {
@@ -50,10 +51,11 @@ public class Shape {
 	public void setNumberOfSides(int numberOfSides) {
 		this.numberOfSides = numberOfSides;
 	}
+
 	public double getCircumference() {
 		return this.circumference;
 	}
-	
+
 	public void setCircumference(double circumference) {
 		this.circumference = circumference;
 	}

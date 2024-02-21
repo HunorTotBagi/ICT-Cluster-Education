@@ -1,36 +1,37 @@
 package polymorphism3profesors;
 
-public class Profesor extends Employee{
-	private String zvanje;
+public class Profesor extends Employee {
+	private String jobTitle;
 	private int SCIPapers;
-	
+
 	public Profesor() {}
-	
-	public Profesor(String firstName, String lastName, int age, double workingPlaceCoef, String zvanje, int SCIPapers) {
+
+	public Profesor(String firstName, String lastName, int age, double workingPlaceCoef, String jobTitle,
+			int SCIPapers) {
 		super(firstName, lastName, age, workingPlaceCoef);
-		this.setZvanje(zvanje);
+		this.setJobTitle(jobTitle);
 		this.setSCIPapers(SCIPapers);
 	}
-	
+
 	public void calculateSalary() {
 		this.setSalary(60000 + this.getSCIPapers() * 3000);
 	}
-	
+
 	public void printPersonData() {
 		System.out.printf("First name: %s %n", this.getFirstName());
 		System.out.printf("Last name: %s %n", this.getLastName());
 		System.out.printf("Age: %d %n", this.getAge());
 		System.out.printf("Working place coefficient: %f %n", this.getWorkingPlaceCoef());
-		System.out.printf("Education level: %s %n", this.getZvanje());
+		System.out.printf("Job title: %s %n", this.getJobTitle());
 		System.out.printf("Number of SCI papers: %d %n %n", this.getSCIPapers());
 	}
 
-	public String getZvanje() {
-		return this.zvanje;
+	public String getJobTitle() {
+		return this.jobTitle;
 	}
 
-	public void setZvanje(String zvanje) {
-		this.zvanje = zvanje;
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
 	}
 
 	public int getSCIPapers() {
@@ -40,6 +41,4 @@ public class Profesor extends Employee{
 	public void setSCIPapers(int sCIPapers) {
 		SCIPapers = sCIPapers;
 	}
-	
-	
 }

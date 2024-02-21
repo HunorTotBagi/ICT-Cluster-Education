@@ -3,10 +3,10 @@ package polymorphism2woman;
 public class Test {
 
 	public static void main(String[] args) {
-		Woman firstWoman = new Woman("Ivana", "Ivanovic", 21, "Jovanovic");
-		Person firstPerson = new Person("Hunor", "Tot-Bagi", 31);
-		
-		firstWoman.printPersonData();
-		firstPerson.printPersonData();
+		Person personOne = new Person("Hunor", "Tot-Bagi", 31);
+		Woman womanOne = new Woman("Ivana", "Ivanovic", 21, "Jovanovic");
+
+		personOne.printPersonData();
+		womanOne.printPersonData();
 	}
 }

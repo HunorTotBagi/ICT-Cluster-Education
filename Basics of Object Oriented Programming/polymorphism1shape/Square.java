@@ -13,13 +13,13 @@ public class Square extends Shape {
 	public void calculateArea() {
 		this.setArea(this.getSideLength() * this.getSideLength());
 	}
-	
+
 	public void calculateCircumference() {
 		this.setCircumference(4 * this.getSideLength());
 	}
-	
+
 	public void displayData() {
-		System.out.printf("Color: %s | Shape: %s | Area: %.2f | Circumference: %.2f %n", this.getColor(), this.getType(), this.getArea(), this.getCircumference());
+		System.out.printf("Shape: %s | Color: %s | Area: %.2f | Circumference: %.2f %n", this.getType(), this.getColor(), this.getArea(), this.getCircumference());
 	}
 
 	public double getSideLength() {

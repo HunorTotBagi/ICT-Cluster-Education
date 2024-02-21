@@ -1,21 +1,22 @@
 package polymorphism3profesors;
 
-public class Assistant extends Employee{
+public class Assistant extends Employee {
 	public String mentor;
 	public int yearOfDoctoralStudies;
-	
+
 	public Assistant() {}
-	
-	public Assistant(String firstName, String lastName, int age, double workingPlaceCoef, String mentor, int yearOfDoctoralStudies) {
+
+	public Assistant(String firstName, String lastName, int age, double workingPlaceCoef, String mentor,
+			int yearOfDoctoralStudies) {
 		super(firstName, lastName, age, workingPlaceCoef);
 		this.setMentor(mentor);
 		this.setYearOfDoctoralStudies(yearOfDoctoralStudies);
 	}
-	
+
 	public void calculateSalary() {
 		this.setSalary(40000 + this.getYearOfDoctoralStudies() * 2000);
 	}
-	
+
 	public void printPersonData() {
 		System.out.printf("First name: %s %n", this.getFirstName());
 		System.out.printf("Last name: %s %n", this.getLastName());
@@ -40,5 +41,4 @@ public class Assistant extends Employee{
 	public void setYearOfDoctoralStudies(int yearOfDoctoralStudies) {
 		this.yearOfDoctoralStudies = yearOfDoctoralStudies;
 	}
-	
 }

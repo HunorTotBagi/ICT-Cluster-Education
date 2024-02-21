@@ -1,55 +1,48 @@
 package exerciseHasA;
 
-public class Institucija {
+public class Institution {
 	private static final int maxBroj = 20;
 	private String naziv, adresa, maticniBroj;
 	private Employee zakonskiZastupnik;
-	private Ucionica[] spisakUcionica;
+	private Classroom[] spisakUcionica;
 	private Employee[] spisakZaposlenih;
 	private int brojUcionica, brojZaposlenih;
 	
-	public Institucija(String naziv, String adresa, String maticniBroj, Employee zakonskiZastupnik) {
+	public Institution(String naziv, String adresa, String maticniBroj, Employee zakonskiZastupnik) {
 		this.setNaziv(naziv);
 		this.setAdresa(adresa);
 		this.setMaticniBroj(maticniBroj);
 		this.setZakonskiZastupnik(zakonskiZastupnik);
-		this.setSpisakUcionica(new Ucionica[maxBroj]);
+		this.setSpisakUcionica(new Classroom[maxBroj]);
 		this.setBrojUcionica(0);
 		this.setSpisakZaposlenih(new Employee[maxBroj]);
 		this.setBrojZaposlenih(0);
 	}
 	
-	public boolean dodajUcionicu(String oznaka, String tip, int brMesta, double povrsina) {
+	public boolean addClassroom(String oznaka, String tip, int brMesta, double povrsina) {
 		if (this.brojUcionica == maxBroj)
 			return false;
-		//if (racunarska) {
-		//	spisakUcionica[brojUcionica++] = new RacunarskaUcionica(oznaka, tip, brMesta, povrsina);
-		//}
-		//else {
-		spisakUcionica[brojUcionica] = new Ucionica(oznaka, tip, brMesta, povrsina);
+
+		spisakUcionica[brojUcionica] = new Classroom(oznaka, tip, brMesta, povrsina);
 		this.brojUcionica++;
-		//}
+
 		return true;
 	}
 	
-	public boolean dodajZaposleni(String firstName, String lastName, int age, int workingPlaceCoef) {
+	public boolean addEmployee(String firstName, String lastName, int age, int workingPlaceCoef) {
 		if (this.brojZaposlenih == maxBroj)
 			return false;
-		//if (racunarska) {
-		//	spisakUcionica[brojUcionica++] = new RacunarskaUcionica(oznaka, tip, brMesta, povrsina);
-		//}
-		//else {
+
 		spisakZaposlenih[brojZaposlenih] = new Employee(firstName, lastName, age, workingPlaceCoef);
 		this.brojZaposlenih++;
-		//}
+
 		return true;
 	}
 	
-	// TODO
-	
+
 	public void printArray() {
 		for (int i = 0 ; i < brojZaposlenih ; i++) {
-			System.out.printf("%s", spisakZaposlenih[i].getFirstName());
+			System.out.printf("%d. Employee: %s %s", i+1, spisakZaposlenih[i].getFirstName(), spisakZaposlenih[i].getLastName());
 		}
 	}
 
@@ -85,11 +78,11 @@ public class Institucija {
 		this.zakonskiZastupnik = zakonskiZastupnik;
 	}
 
-	public Ucionica[] getSpisakUcionica() {
+	public Classroom[] getSpisakUcionica() {
 		return this.spisakUcionica;
 	}
 
-	public void setSpisakUcionica(Ucionica[] spisakUcionica) {
+	public void setSpisakUcionica(Classroom[] spisakUcionica) {
 		this.spisakUcionica = spisakUcionica;
 	}
 

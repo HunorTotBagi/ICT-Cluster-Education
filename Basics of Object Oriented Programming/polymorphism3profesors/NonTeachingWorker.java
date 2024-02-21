@@ -1,22 +1,23 @@
 package polymorphism3profesors;
 
-public class NonTeachingWorker extends Employee{
+public class NonTeachingWorker extends Employee {
 	private String workingPlace;
 	private int workExperience;
-	
-	public NonTeachingWorker () {}
-	
-	public NonTeachingWorker(String firstName, String lastName, int age, double workingPlaceCoef, String workingPlace, int workExperience) {
+
+	public NonTeachingWorker() {}
+
+	public NonTeachingWorker(String firstName, String lastName, int age, double workingPlaceCoef, String workingPlace,
+			int workExperience) {
 		super(firstName, lastName, age, workingPlaceCoef);
 		this.workingPlace = workingPlace;
 		this.workExperience = workExperience;
 
 	}
-	
+
 	public void calculateSalary() {
 		this.setSalary(30000 + this.getWorkExperience() * 500);
 	}
-	
+
 	public void printPersonData() {
 		System.out.printf("First name: %s %n", this.getFirstName());
 		System.out.printf("Last name: %s %n", this.getLastName());
