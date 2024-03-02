@@ -12,7 +12,5 @@ public class Task_three {
 			}
 			System.out.println("Q");
 		}
-
 	}
-
 }
