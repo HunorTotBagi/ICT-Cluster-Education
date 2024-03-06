@@ -1,10 +1,10 @@
 package jmbg_arrayList;
 
 public class Person {
-	private String firstName;
-	private String lastName;
-	private String jmbg;
+	private String firstName, lastName, jmbg;
 
+	public Person() {
+	}
 
 	public Person(String firstName, String lastName, String jmbg) {
 		this.setFirstName(firstName);
@@ -40,5 +40,4 @@ public class Person {
 	public void setJmbg(String jmbg) {
 		this.jmbg = jmbg;
 	}
-
 }

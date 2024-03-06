@@ -17,42 +17,6 @@ public class ListOfPersons {
 		}
 	}
 
-	public void sort() {
-		System.out.println("");
-		System.out.println("SORT");
-		System.out.println("");
-	    int n = listOfPersons.size();
-	    double[] jmbg = new double[n];
-	    int[] index = new int[n];
-
-	    for (int i = 0; i < n; i++) {
-	    	String jmbg1 = listOfPersons.get(i).getJmbg();
-	        jmbg[i] = Double.parseDouble(jmbg1);
-	        index[i] = i;
-	    }
-
-	    for (int j = 1; j < n; j++) {
-	        for (int i = 0; i < n - j; i++) {
-	            if (jmbg[i + 1] < jmbg[i]) {
-	            	double temp = jmbg[i];
-	                int temp1 = index[i];
-	                jmbg[i] = jmbg[i + 1];
-	                index[i] = index[i + 1];
-	                jmbg[i + 1] = temp;
-	                index[i + 1] = temp1;
-	            }
-	        }
-	    }
-
-	    for (int i = 0; i < n; i++) {
-	        System.out.println(listOfPersons.get(index[i]).getFirstName());
-	        System.out.println(listOfPersons.get(index[i]).getLastName());
-	        System.out.println(listOfPersons.get(index[i]).getJmbg());
-	        System.out.println();
-	    }
-	}
-
-
 	public void readList(String fileName) {
 		Scanner s = null;
 		ArrayList<Person> listOfPersons = new ArrayList<Person>();
@@ -77,4 +41,51 @@ public class ListOfPersons {
 		this.listOfPersons = listOfPersons;
 	}
 
+	public void sortAscending() {
+		int n = listOfPersons.size();
+
+		double[] jmbgArray = new double[n];
+		int[] index = new int[n];
+
+		for (int i = 0; i < n; i++) {
+			String jmbg = listOfPersons.get(i).getJmbg();
+			jmbgArray[i] = Double.parseDouble(jmbg);
+			index[i] = i;
+		}
+
+		sort(n, jmbgArray, index);
+		printSortedList(n, index);
+	}
+
+	private void printSortedList(int n, int[] index) {
+		for (int i = 0; i < n; i++) {
+			System.out.println(listOfPersons.get(index[i]).getFirstName());
+			System.out.println(listOfPersons.get(index[i]).getLastName());
+			System.out.println(listOfPersons.get(index[i]).getJmbg());
+			System.out.println();
+		}
+	}
+
+	private void sort(int n, double[] jmbg, int[] index) {
+		for (int j = 1; j < n; j++) {
+			for (int i = 0; i < n - j; i++) {
+				if (jmbg[i + 1] < jmbg[i]) {
+					swapJmbg(jmbg, i);
+					swapIndex(index, i);
+				}
+			}
+		}
+	}
+
+	private void swapIndex(int[] array, int i) {
+		int temp = array[i];
+		array[i] = array[i + 1];
+		array[i + 1] = temp;
+	}
+
+	private void swapJmbg(double[] array, int i) {
+		double temp = array[i];
+		array[i] = array[i + 1];
+		array[i + 1] = temp;
+	}
 }

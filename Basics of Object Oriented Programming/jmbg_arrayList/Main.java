@@ -1,17 +1,17 @@
 package jmbg_arrayList;
 
-
 public class Main {
 
 	public static void main(String[] args) {
 
-		ListOfPersons first = new ListOfPersons();
+		ListOfPersons mainList = new ListOfPersons();
 		
-		first.readList("spisakPolaznika.txt");
-		
-		first.printList();
+		mainList.readList("spisakPolaznika.txt");
+		mainList.printList();
  				
-		first.sort();
+		System.out.println("Sorting by JMBG in progress...");
+		System.out.println("");
+		
+		mainList.sortAscending();
 	}
-
 }
