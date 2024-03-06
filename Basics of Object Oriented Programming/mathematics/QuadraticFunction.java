@@ -7,10 +7,10 @@ import java.io.IOException;
 public class QuadraticFunction implements Function {
 	private double a, b, c;
 
-	public void loadParameters(BufferedReader data) throws IOException {
-		a = Double.parseDouble(data.readLine());
-		b = Double.parseDouble(data.readLine());
-		c = Double.parseDouble(data.readLine());
+	public void loadParameters(BufferedReader inputData) throws IOException {
+		a = Double.parseDouble(inputData.readLine());
+		b = Double.parseDouble(inputData.readLine());
+		c = Double.parseDouble(inputData.readLine());
 	}
 
 	public double calculateValueAt(double x) {

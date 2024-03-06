@@ -3,7 +3,15 @@ package mathematics;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
+
+/**
+ * @author Hunor Tot-Bagi <hunortotbagi@gmail.com>
+ * @version 1.0
+ */
 public class LinearFunction implements Function {
 	private double a, b;
 
@@ -12,6 +20,9 @@ public class LinearFunction implements Function {
 		b = Double.parseDouble(inputData.readLine());
 	}
 
+	/**
+	 * 	@return Returns the value of the function at value x.
+	 */
 	public double calculateValueAt(double x) {
 		return a * x + b;
 	}
