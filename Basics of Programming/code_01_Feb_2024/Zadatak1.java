@@ -1,7 +1,5 @@
 package code_01_Feb_2024;
 
-import nizovi.TextIO;
-
 public class Zadatak1 {
 
 	public static void main(String[] args) {
