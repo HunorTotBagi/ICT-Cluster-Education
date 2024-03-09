@@ -1,0 +1,10 @@
+Crvena Zvezda,Belgrade,15
+Partizan,Belgrade,14
+Vojvodina,Novi Sad,13
+Radnički,Niš,12
+Spartak,Subotica,11
+Čukarički,Belgrade,10
+Javor,Ivanjica,9
+Napredak,Kruševac,8
+Rad,Belgrade,7
+Metalac,Gornji Milanovac,6

@@ -1,0 +1,59 @@
+package secondObligatoryHomework;
+
+import java.util.ArrayList;
+
+public class ListOfPlayers implements WorkWithPlayers {
+	private ArrayList<Player> players;
+
+	public ListOfPlayers() {
+		this.setPlayers(new ArrayList<>());
+	}
+
+	public void addPlayer(Player inputPlayer) {
+		this.getPlayers().add(inputPlayer);
+		System.out.printf("Player %s %s with JMBG %s from team %s added to the list of players.%n",
+				inputPlayer.getFirstName(), inputPlayer.getLastName(), inputPlayer.getJmbg(),
+				inputPlayer.getTeamName());
+	}
+
+	public void removePlayer(Player inputPlayer) {
+		String firstName = inputPlayer.getFirstName();
+		String lastName = inputPlayer.getLastName();
+
+		if (findPlayer(firstName, lastName, false) == -1) {
+			System.out.printf("Error: The player %s %s you are trying to remove is not in the list of players!%n",
+					firstName, lastName);
+		} else {
+			this.getPlayers().remove(inputPlayer);
+			System.out.printf("Player %s %s removed from list of players.%n", firstName, lastName);
+		}
+	}
+
+	public int findPlayer(String firstName, String lastName) {
+		return findPlayer(firstName, lastName, true);
+	}
+
+	public int findPlayer(String firstName, String lastName, Boolean printConsoleMessage) {
+		for (int i = 0; i < this.getPlayers().size(); i++) {
+			String firstNameFromList = this.getPlayers().get(i).getFirstName();
+			String lastNameFromList = this.getPlayers().get(i).getLastName();
+			if (firstNameFromList == firstName && lastNameFromList == lastName) {
+				if (printConsoleMessage)
+					System.out.printf("Player %s %s is in the list of players on position %d.%n", firstName, lastName,
+							i + 1);
+				return i;
+			}
+		}
+		if (printConsoleMessage)
+			System.out.printf("Player %s %s is not in the list of players.%n", firstName, lastName);
+		return -1;
+	}
+
+	public ArrayList<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(ArrayList<Player> players) {
+		this.players = players;
+	}
+}
