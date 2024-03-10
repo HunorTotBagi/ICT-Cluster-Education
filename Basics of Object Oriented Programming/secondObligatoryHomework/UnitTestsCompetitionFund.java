@@ -12,10 +12,8 @@ public class UnitTestsCompetitionFund {
 		teams.addTeam(crvenaZvezda);
 		teams.addTeam(partizan);
 		teams.addTeam(vojvodina);
-		
+
 		CompetitionFund fund = new CompetitionFund();
-		fund.getAwards(teams);
-
+		fund.printAwards(teams);
 	}
-
 }

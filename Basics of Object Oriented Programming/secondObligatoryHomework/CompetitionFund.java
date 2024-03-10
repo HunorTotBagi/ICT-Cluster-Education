@@ -1,13 +1,12 @@
 package secondObligatoryHomework;
 
 public class CompetitionFund {
-
 	private double totalFund;
 	private double firstPlacePrice;
 	private double secondPlacePrice;
 	private double thirdPlacePrice;
 
-	public void getAwards(ListOfTeams input) {
+	public void printAwards(ListOfTeams input) {
 		this.setTotalFund(getMoney(input));
 		this.setFirstPlacePrice(this.getTotalFund() * 0.5);
 		this.setSecondPlacePrice(this.getTotalFund() * 0.3);
@@ -19,7 +18,7 @@ public class CompetitionFund {
 		System.out.printf("Third place price is %.2f.%n", this.getThirdPlacePrice());
 	}
 
-	public double getMoney(ListOfTeams input) {
+	private double getMoney(ListOfTeams input) {
 		int numberOfTeams = input.getTeams().size();
 		double moneyFromTeams = 500 * numberOfTeams;
 		double moneyFromPlayers = 0;
@@ -33,7 +32,7 @@ public class CompetitionFund {
 		return totalFund;
 	}
 
-	public void setTotalFund(double totalFund) {
+	private void setTotalFund(double totalFund) {
 		this.totalFund = totalFund;
 	}
 
@@ -41,7 +40,7 @@ public class CompetitionFund {
 		return this.firstPlacePrice;
 	}
 
-	public void setFirstPlacePrice(double firstPlacePrice) {
+	private void setFirstPlacePrice(double firstPlacePrice) {
 		this.firstPlacePrice = firstPlacePrice;
 	}
 
@@ -49,7 +48,7 @@ public class CompetitionFund {
 		return this.secondPlacePrice;
 	}
 
-	public void setSecondPlacePrice(double secondPlacePrice) {
+	private void setSecondPlacePrice(double secondPlacePrice) {
 		this.secondPlacePrice = secondPlacePrice;
 	}
 
@@ -57,7 +56,7 @@ public class CompetitionFund {
 		return this.thirdPlacePrice;
 	}
 
-	public void setThirdPlacePrice(double thirdPlacePrice) {
+	private void setThirdPlacePrice(double thirdPlacePrice) {
 		this.thirdPlacePrice = thirdPlacePrice;
 	}
 }
