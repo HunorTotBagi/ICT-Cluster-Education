@@ -14,7 +14,7 @@ public class UnitTestsPlayer {
 
 		System.out.println();
 		players.findPlayer("Luka", "Jovanović");
-		players.findPlayer("Marko", "Nikloic");
+		players.findPlayer("Marko", "Nikloić");
 
 		System.out.println();
 		players.removePlayer(anaNikolic);

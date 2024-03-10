@@ -1,8 +1,11 @@
 package secondObligatoryHomework;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class ListOfPlayers implements WorkWithPlayers {
+public class ListOfPlayers implements WorkWithPlayers, WorkWithFiles {
 	private ArrayList<Player> players;
 
 	public ListOfPlayers() {
@@ -37,7 +40,7 @@ public class ListOfPlayers implements WorkWithPlayers {
 		for (int i = 0; i < this.getPlayers().size(); i++) {
 			String firstNameFromList = this.getPlayers().get(i).getFirstName();
 			String lastNameFromList = this.getPlayers().get(i).getLastName();
-			if (firstNameFromList == firstName && lastNameFromList == lastName) {
+			if (firstNameFromList.equals(firstName) && lastNameFromList.equals(lastName)) {
 				if (printConsoleMessage)
 					System.out.printf("Player %s %s is in the list of players on position %d.%n", firstName, lastName,
 							i + 1);
@@ -48,6 +51,31 @@ public class ListOfPlayers implements WorkWithPlayers {
 			System.out.printf("Player %s %s is not in the list of players.%n", firstName, lastName);
 		return -1;
 	}
+	
+	public void readFromFile(String fileName) {
+		try {
+	        File file = new File(fileName);
+	        Scanner scanner = new Scanner(file);
+	        
+	        while(scanner.hasNextLine()) {
+	            String line = scanner.nextLine();
+	            String[] parts = line.split(",");
+	            
+	            if (parts.length == 4) {
+	                String firstName = parts[0];
+	                String lastName = parts[1];
+	                String jmbg = parts[2];
+	                String team = parts[3];
+	                
+	                Player player = new Player(firstName, lastName, jmbg, team);
+	                players.add(player);
+	            }
+	        }
+	        scanner.close();
+	    } catch (IOException e) {
+	        System.out.println(e.getMessage());
+	    }
+	}
 
 	public ArrayList<Player> getPlayers() {
 		return players;
@@ -56,4 +84,6 @@ public class ListOfPlayers implements WorkWithPlayers {
 	public void setPlayers(ArrayList<Player> players) {
 		this.players = players;
 	}
+
+
 }

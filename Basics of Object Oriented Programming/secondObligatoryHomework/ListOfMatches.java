@@ -2,6 +2,8 @@ package secondObligatoryHomework;
 
 import java.util.ArrayList;
 
+import secondObligatoryHomework.Match.Result;
+
 public class ListOfMatches implements WorkWithMatches {
 	private ArrayList<Match> matches;
 
@@ -37,7 +39,7 @@ public class ListOfMatches implements WorkWithMatches {
 		for (int i = 0; i < this.getMatches().size(); i++) {
 			String firstTeamName = this.getMatches().get(i).getFirstTeamName();
 			String secondTeamName = this.getMatches().get(i).getSecondTeamName();
-			if (firstTeamName == inputFirstTeamName && secondTeamName == inputSecondTeamName) {
+			if (firstTeamName.equals(inputFirstTeamName) && secondTeamName.equals(inputSecondTeamName)) {
 				if (printConsoleMessage)
 					System.out.printf("Match between %s and %s is in the list of matches on position %d.%n",
 							inputFirstTeamName, inputSecondTeamName, i + 1);
@@ -48,6 +50,36 @@ public class ListOfMatches implements WorkWithMatches {
 			System.out.printf("Match between %s and %s is not in the list of matches.%n", inputFirstTeamName,
 					inputSecondTeamName);
 		return -1;
+	}
+
+	public void calculateScores(ListOfMatches matches, ListOfTeams teams) {
+		for (int i = 0; i < matches.getMatches().size(); i++) {
+			Match match = matches.getMatches().get(i);
+			String firstTeamName = match.getFirstTeamName();
+			String secondTeamName = match.getSecondTeamName();
+			Result result = match.getResult();
+
+			switch (result) {
+			case FIRST_WON:
+				updateScore(teams, firstTeamName, 3);
+				break;
+			case SECOND_WON:
+				updateScore(teams, secondTeamName, 3);
+				break;
+			case TIED:
+				updateScore(teams, firstTeamName, 1);
+				updateScore(teams, secondTeamName, 1);
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	private void updateScore(ListOfTeams teams, String teamName, int scoreToAdd) {
+		int index = teams.findTeam(teamName, false);
+		Team foundTeam = teams.getTeams().get(index);
+		foundTeam.setScore(foundTeam.getScore() + scoreToAdd);
 	}
 
 	public ArrayList<Match> getMatches() {

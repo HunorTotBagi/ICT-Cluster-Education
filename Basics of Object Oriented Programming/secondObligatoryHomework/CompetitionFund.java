@@ -2,9 +2,7 @@ package secondObligatoryHomework;
 
 public class CompetitionFund {
 	private double totalFund;
-	private double firstPlacePrice;
-	private double secondPlacePrice;
-	private double thirdPlacePrice;
+	private double[] priceList = new double[4];
 
 	public void calculateFund(ListOfTeams input) {
 		System.out.println("Calculating fund in progres...");
@@ -15,16 +13,16 @@ public class CompetitionFund {
 			moneyFromPlayers += 100 * input.getTeams().get(i).getNumberOfPlayers();
 		}
 		this.setTotalFund(moneyFromTeams + moneyFromPlayers);
-		this.setFirstPlacePrice(this.getTotalFund() * 0.5);
-		this.setSecondPlacePrice(this.getTotalFund() * 0.3);
-		this.setThirdPlacePrice(this.getTotalFund() * 0.2);
+		priceList[0] = this.getTotalFund() * 0.5;
+		priceList[1] = this.getTotalFund() * 0.3;
+		priceList[2] = this.getTotalFund() * 0.2;
 	}
 	
 	public void printAwards(ListOfTeams input) {
 		System.out.printf("Total fund is %.2f Euros.%n %n", this.getTotalFund());
-		System.out.printf("First place price is %.2f Euros.%n", this.getFirstPlacePrice());
-		System.out.printf("Second place price is %.2f Euros.%n", this.getSecondPlacePrice());
-		System.out.printf("Third place price is %.2f Euros.%n", this.getThirdPlacePrice());
+		System.out.printf("First place price gets %.2f Euros.%n", priceList[0]);
+		System.out.printf("Second place price gets %.2f Euros.%n", priceList[1]);
+		System.out.printf("Third place price gets %.2f Euros.%n", priceList[2]);
 	}
 
 	public double getTotalFund() {
@@ -34,28 +32,12 @@ public class CompetitionFund {
 	private void setTotalFund(double totalFund) {
 		this.totalFund = totalFund;
 	}
-
-	public double getFirstPlacePrice() {
-		return this.firstPlacePrice;
+	
+	public double[] getPriceList() {
+		return priceList;
 	}
 
-	private void setFirstPlacePrice(double firstPlacePrice) {
-		this.firstPlacePrice = firstPlacePrice;
-	}
-
-	public double getSecondPlacePrice() {
-		return this.secondPlacePrice;
-	}
-
-	private void setSecondPlacePrice(double secondPlacePrice) {
-		this.secondPlacePrice = secondPlacePrice;
-	}
-
-	public double getThirdPlacePrice() {
-		return this.thirdPlacePrice;
-	}
-
-	private void setThirdPlacePrice(double thirdPlacePrice) {
-		this.thirdPlacePrice = thirdPlacePrice;
+	public void setPriceList(double[] priceList) {
+		this.priceList = priceList;
 	}
 }

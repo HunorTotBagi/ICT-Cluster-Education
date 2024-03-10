@@ -3,6 +3,8 @@ package secondObligatoryHomework;
 public class Team {
 	private String name, originCity;
 	private int numberOfPlayers;
+	private int score;
+	private double budget;
 
 	public Team(String name, String originCity, int numberOfPlayers) {
 		this.setName(name);
@@ -32,5 +34,20 @@ public class Team {
 
 	public void setNumberOfPlayers(int numberOfPlayers) {
 		this.numberOfPlayers = numberOfPlayers;
+	}
+	public int getScore() {
+		return this.score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	public double getBudget() {
+		return budget;
+	}
+
+	public void setBudget(double budget) {
+		this.budget = budget;
 	}
 }
