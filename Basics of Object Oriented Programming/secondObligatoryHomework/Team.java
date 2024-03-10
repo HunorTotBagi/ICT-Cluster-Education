@@ -2,8 +2,7 @@ package secondObligatoryHomework;
 
 public class Team {
 	private String name, originCity;
-	private int numberOfPlayers;
-	private int score;
+	private int numberOfPlayers, score;
 	private double budget;
 
 	public Team(String name, String originCity, int numberOfPlayers) {

@@ -5,26 +5,27 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ListOfTeams implements WorkWithTeams, WorkWithFiles {
+public class TeamList implements OperationsTeam, OperationsFiles {
 	private ArrayList<Team> teams;
 
-	public ListOfTeams() {
+	public TeamList() {
 		this.setTeams(new ArrayList<>());
 	}
 
-	public void addTeam(Team inputTeam) {
-		this.getTeams().add(inputTeam);
-		System.out.printf("Team %s from %s with %d players added to list of teams.%n", inputTeam.getName(),
-				inputTeam.getOriginCity(), inputTeam.getNumberOfPlayers());
+	public void addTeam(Team team) {
+		this.getTeams().add(team);
+		System.out.printf("Team %s from %s with %d players added to list of teams.%n", team.getName(),
+				team.getOriginCity(), team.getNumberOfPlayers());
 	}
 
-	public void removeTeam(Team inputTeam) {
-		String teamName = inputTeam.getName();
+	public void removeTeam(Team team) {
+		String teamName = team.getName();
+		int teamIndex = findTeam(teamName, false);
 
-		if (findTeam(teamName, false) == -1) {
+		if (teamIndex == -1) {
 			System.out.printf("Error: The team %s you are trying to remove is not in the list of teams!%n", teamName);
 		} else {
-			this.getTeams().remove(inputTeam);
+			this.getTeams().remove(team);
 			System.out.printf("Team %s removed from list of teams.%n", teamName);
 		}
 	}
@@ -73,29 +74,28 @@ public class ListOfTeams implements WorkWithTeams, WorkWithFiles {
 	public void printTeamScores() {
 		for (int i = 0; i < teams.size(); i++) {
 			Team currentTeam = teams.get(i);
-			System.out.printf("Score: %s - %d %n", currentTeam.getName(), currentTeam.getScore());
+			System.out.printf("Score for %s: %d %n", currentTeam.getName(), currentTeam.getScore());
 		}
 	}
 
-	public void printTeamScores(int[] indexes, CompetitionFund fund) {
+	public void printTeamScores(int[] indexes, Tournament fund) {
 		System.out.printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %n");
 		System.out.printf("~~~ Tournament final results ~~~ %n");
 		System.out.printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %n %n");
 		for (int i = 0; i < indexes.length; i++) {
 			Team currentTeam = teams.get(indexes[i]);
-			if (fund.getPriceList()[i] != 0) {
-				System.out.printf("%d. place %d points - %s +%.2f Euros %n", i + 1, currentTeam.getScore(), currentTeam.getName(), fund.getPriceList()[i]);
+			double price = fund.getPriceList()[i];
+			if (price != 0) {
+				System.out.printf("%d. Place %d points - %s +%.2f Euros %n", i + 1, currentTeam.getScore(), currentTeam.getName(), fund.getPriceList()[i]);
 			}
 			else {
-				System.out.printf("%d. place %d points - %s %n", i + 1, currentTeam.getScore(), currentTeam.getName());
+				System.out.printf("%d. Place %d points - %s %n", i + 1, currentTeam.getScore(), currentTeam.getName());
 			}
-			
 		}
 	}
 
-	public void sortByScore(CompetitionFund fund) {
+	public void sortByScore(Tournament fund) {
 		int n = teams.size();
-
 		int[] scoreArray = new int[n];
 		int[] index = new int[n];
 
@@ -104,7 +104,6 @@ public class ListOfTeams implements WorkWithTeams, WorkWithFiles {
 			scoreArray[i] = score;
 			index[i] = i;
 		}
-
 		sort(n, scoreArray, index);
 		printTeamScores(index, fund);
 	}
@@ -112,7 +111,7 @@ public class ListOfTeams implements WorkWithTeams, WorkWithFiles {
 	private void sort(int n, int[] score, int[] index) {
 		for (int j = 1; j < n; j++) {
 			for (int i = 0; i < n - j; i++) {
-				if (score[i + 1] > score[i]) { // Changed to sort in descending order
+				if (score[i + 1] > score[i]) {
 					swap(score, i);
 					swap(index, i);
 				}

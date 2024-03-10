@@ -1,6 +1,6 @@
 package secondObligatoryHomework;
 
-public interface WorkWithPlayers {
+public interface OperationsPlayers {
 	void addPlayer(Player inputPlayer);
 
 	void removePlayer(Player inputPlayer);

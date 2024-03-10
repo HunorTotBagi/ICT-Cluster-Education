@@ -1,6 +1,6 @@
 package secondObligatoryHomework;
 
-public interface WorkWithMatches {
+public interface OperationsMatches {
 	void addMatch(Match inputMatch);
 
 	void removeMatch(Match inputMatch);

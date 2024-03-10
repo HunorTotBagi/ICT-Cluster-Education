@@ -1,5 +1,5 @@
 package secondObligatoryHomework;
 
-public interface WorkWithFiles {
+public interface OperationsFiles {
 	void readFromFile(String fileName);
 }

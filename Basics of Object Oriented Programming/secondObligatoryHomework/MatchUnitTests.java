@@ -2,7 +2,7 @@ package secondObligatoryHomework;
 
 import secondObligatoryHomework.Match.Result;
 
-public class UnitTestsMatch {
+public class MatchUnitTests {
 
 	public static void main(String[] args) {
 		Team crvenaZvezda = new Team("Crvena Zvezda", "Belgrade", 15);
@@ -15,7 +15,7 @@ public class UnitTestsMatch {
 		Match partizanVsVojvodina = new Match(partizan.getName(), vojvodina.getName(), Result.SECOND_WON);
 		Match zvezdaVsRadnicki = new Match(crvenaZvezda.getName(), radnicki.getName(), Result.UNPLAYED);
 
-		ListOfMatches matches = new ListOfMatches();
+		MatchList matches = new MatchList();
 
 		matches.addMatch(zvezdaVsPartizan);
 		matches.addMatch(vojvodinaVsRadnicki);

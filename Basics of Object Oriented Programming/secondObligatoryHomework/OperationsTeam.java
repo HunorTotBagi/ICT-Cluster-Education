@@ -1,6 +1,6 @@
 package secondObligatoryHomework;
 
-public interface WorkWithTeams {
+public interface OperationsTeam {
 	void addTeam(Team inputTeam);
 
 	void removeTeam(Team inputTeam);

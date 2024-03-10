@@ -5,7 +5,7 @@ import secondObligatoryHomework.Match.Result;
 public class Main {
 
 	public static void main(String[] args) {
-		ListOfTeams teams = new ListOfTeams();
+		TeamList teams = new TeamList();
 		teams.readFromFile("teams.txt");
 
 		teams.findTeam("Crvena Zvezda");
@@ -13,27 +13,28 @@ public class Main {
 		teams.findTeam("Vojvodina");
 		teams.findTeam("Radnički");
 
-		ListOfPlayers players = new ListOfPlayers();
+		PlayerList players = new PlayerList();
 		players.readFromFile("players.txt");
 
 		System.out.println();
 		players.findPlayer("Filip", "Stojanović");
 		players.findPlayer("Hunor", "Tot-Bagi");
+		players.findPlayer("Era", "Ojdanić");
 
-		ListOfMatches matches = new ListOfMatches();
+		MatchList matches = new MatchList();
 
 		System.out.println();
 		Match zvezdaVsVojvodina = new Match("Crvena Zvezda", "Vojvodina", Result.SECOND_WON);
-		Match PartizanVsradnicki = new Match("Partizan", "Radnički", Result.FIRST_WON);
-		Match VojvodinaVsPartizanTied = new Match("Vojvodina", "Partizan", Result.TIED);
-		Match VojvodinaVsPartizan = new Match("Vojvodina", "Partizan", Result.FIRST_WON);
+		Match partizanVsradnicki = new Match("Partizan", "Radnički", Result.FIRST_WON);
+		Match vojvodinaVsPartizanTied = new Match("Vojvodina", "Partizan", Result.TIED);
+		Match vojvodinaVsPartizan = new Match("Vojvodina", "Partizan", Result.FIRST_WON);
 		Match zvezdaVsRadnickiUnplayed = new Match("Crvena Zvezda", "Radnički", Result.UNPLAYED);
 		Match zvezdaVsRadnicki = new Match("Crvena Zvezda", "Radnički", Result.FIRST_WON);
 
 		matches.addMatch(zvezdaVsVojvodina);
-		matches.addMatch(PartizanVsradnicki);
-		matches.addMatch(VojvodinaVsPartizanTied);
-		matches.addMatch(VojvodinaVsPartizan);
+		matches.addMatch(partizanVsradnicki);
+		matches.addMatch(vojvodinaVsPartizanTied);
+		matches.addMatch(vojvodinaVsPartizan);
 		matches.addMatch(zvezdaVsRadnickiUnplayed);
 		matches.addMatch(zvezdaVsRadnicki);
 
@@ -43,13 +44,13 @@ public class Main {
 		teams.printTeamScores();
 		
 		System.out.println();
-		CompetitionFund fund = new CompetitionFund();
-		fund.calculateFund(teams);
-		fund.printAwards(teams);
+		Tournament tournament = new Tournament();
+		tournament.calculateFund(teams);
+		tournament.printAwards(teams);
 		
 		System.out.println();
-		teams.sortByScore(fund);
+		teams.sortByScore(tournament);
 		
-
+		matches.writeToFile("matches.txt");
 	}
 }

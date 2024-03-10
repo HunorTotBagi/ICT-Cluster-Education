@@ -1,10 +1,10 @@
 package secondObligatoryHomework;
 
-public class CompetitionFund {
+public class Tournament {
 	private double totalFund;
 	private double[] priceList = new double[4];
 
-	public void calculateFund(ListOfTeams input) {
+	public void calculateFund(TeamList input) {
 		System.out.println("Calculating fund in progres...");
 		int numberOfTeams = input.getTeams().size();
 		double moneyFromTeams = 500 * numberOfTeams;
@@ -18,7 +18,7 @@ public class CompetitionFund {
 		priceList[2] = this.getTotalFund() * 0.2;
 	}
 	
-	public void printAwards(ListOfTeams input) {
+	public void printAwards(TeamList input) {
 		System.out.printf("Total fund is %.2f Euros.%n %n", this.getTotalFund());
 		System.out.printf("First place price gets %.2f Euros.%n", priceList[0]);
 		System.out.printf("Second place price gets %.2f Euros.%n", priceList[1]);
