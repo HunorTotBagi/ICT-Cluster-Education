@@ -18,7 +18,7 @@ public class Match {
 		return this.firstTeamName;
 	}
 
-	public void setFirstTeamName(String firstTeamName) {
+	private void setFirstTeamName(String firstTeamName) {
 		this.firstTeamName = firstTeamName;
 	}
 
@@ -26,7 +26,7 @@ public class Match {
 		return this.secondTeamName;
 	}
 
-	public void setSecondTeamName(String secondTeamName) {
+	private void setSecondTeamName(String secondTeamName) {
 		this.secondTeamName = secondTeamName;
 	}
 
@@ -34,7 +34,7 @@ public class Match {
 		return this.result;
 	}
 
-	public void setResult(Result result) {
+	private void setResult(Result result) {
 		this.result = result;
 	}
 }

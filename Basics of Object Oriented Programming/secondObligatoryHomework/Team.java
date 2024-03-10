@@ -15,7 +15,7 @@ public class Team {
 		return this.name;
 	}
 
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 
@@ -23,7 +23,7 @@ public class Team {
 		return this.originCity;
 	}
 
-	public void setOriginCity(String city) {
+	private void setOriginCity(String city) {
 		this.originCity = city;
 	}
 
@@ -31,9 +31,10 @@ public class Team {
 		return this.numberOfPlayers;
 	}
 
-	public void setNumberOfPlayers(int numberOfPlayers) {
+	private void setNumberOfPlayers(int numberOfPlayers) {
 		this.numberOfPlayers = numberOfPlayers;
 	}
+
 	public int getScore() {
 		return this.score;
 	}
@@ -41,7 +42,7 @@ public class Team {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	
+
 	public double getBudget() {
 		return budget;
 	}

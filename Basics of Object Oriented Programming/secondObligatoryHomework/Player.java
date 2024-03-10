@@ -12,7 +12,7 @@ public class Player extends Person {
 		return this.teamName;
 	}
 
-	public void setTeamName(String teamName) {
+	private void setTeamName(String teamName) {
 		this.teamName = teamName;
 	}
 }

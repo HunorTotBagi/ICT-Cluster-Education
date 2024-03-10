@@ -14,8 +14,8 @@ public class TournamentUnitTests {
 		teams.addTeam(vojvodina);
 
 		System.out.println();
-		Tournament fund = new Tournament();
-		fund.calculateFund(teams);
-		fund.printAwards(teams);
+		Tournament tournament = new Tournament();
+		tournament.calculateFund(teams);
+		tournament.printAwards(teams);
 	}
 }
