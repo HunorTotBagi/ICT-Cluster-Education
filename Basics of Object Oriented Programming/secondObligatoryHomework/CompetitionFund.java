@@ -6,26 +6,25 @@ public class CompetitionFund {
 	private double secondPlacePrice;
 	private double thirdPlacePrice;
 
-	public void printAwards(ListOfTeams input) {
-		this.setTotalFund(getMoney(input));
-		this.setFirstPlacePrice(this.getTotalFund() * 0.5);
-		this.setSecondPlacePrice(this.getTotalFund() * 0.3);
-		this.setThirdPlacePrice(this.getTotalFund() * 0.2);
-
-		System.out.printf("Total fund is: %.2f.%n %n", this.getTotalFund());
-		System.out.printf("First place price is %.2f.%n", this.getFirstPlacePrice());
-		System.out.printf("Second place price is %.2f.%n", this.getSecondPlacePrice());
-		System.out.printf("Third place price is %.2f.%n", this.getThirdPlacePrice());
-	}
-
-	private double getMoney(ListOfTeams input) {
+	public void calculateFund(ListOfTeams input) {
+		System.out.println("Calculating fund in progres...");
 		int numberOfTeams = input.getTeams().size();
 		double moneyFromTeams = 500 * numberOfTeams;
 		double moneyFromPlayers = 0;
 		for (int i = 0; i < numberOfTeams; i++) {
 			moneyFromPlayers += 100 * input.getTeams().get(i).getNumberOfPlayers();
 		}
-		return moneyFromTeams + moneyFromPlayers;
+		this.setTotalFund(moneyFromTeams + moneyFromPlayers);
+		this.setFirstPlacePrice(this.getTotalFund() * 0.5);
+		this.setSecondPlacePrice(this.getTotalFund() * 0.3);
+		this.setThirdPlacePrice(this.getTotalFund() * 0.2);
+	}
+	
+	public void printAwards(ListOfTeams input) {
+		System.out.printf("Total fund is %.2f Euros.%n %n", this.getTotalFund());
+		System.out.printf("First place price is %.2f Euros.%n", this.getFirstPlacePrice());
+		System.out.printf("Second place price is %.2f Euros.%n", this.getSecondPlacePrice());
+		System.out.printf("Third place price is %.2f Euros.%n", this.getThirdPlacePrice());
 	}
 
 	public double getTotalFund() {
