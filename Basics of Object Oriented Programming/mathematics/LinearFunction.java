@@ -3,10 +3,6 @@ package mathematics;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 
 /**
  * @author Hunor Tot-Bagi <hunortotbagi@gmail.com>
