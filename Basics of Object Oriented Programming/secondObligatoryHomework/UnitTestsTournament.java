@@ -1,6 +1,6 @@
 package secondObligatoryHomework;
 
-public class TournamentUnitTests {
+public class UnitTestsTournament {
 
 	public static void main(String[] args) {
 		Team crvenaZvezda = new Team("Crvena Zvezda", "Belgrade", 15);
@@ -14,7 +14,8 @@ public class TournamentUnitTests {
 		teams.addTeam(vojvodina);
 
 		System.out.println();
-		Tournament tournament = new Tournament();
+		
+		Tournament tournament = new Tournament(teams.getNumberOfTeams());
 		tournament.calculateFund(teams);
 		tournament.printAwards(teams);
 	}

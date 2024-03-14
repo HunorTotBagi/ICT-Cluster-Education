@@ -1,6 +1,6 @@
 package secondObligatoryHomework;
 
-public class PlayerUnitTests {
+public class UnitTestsPlayer {
 
 	public static void main(String[] args) {
 		Player lukaJovanovic = new Player("Luka", "Jovanović", "0405992750001", "Crvena Zvezda");
@@ -17,7 +17,7 @@ public class PlayerUnitTests {
 		players.findPlayer("Marko", "Nikloić");
 
 		System.out.println();
-		players.removePlayer(anaNikolic);
 		players.removePlayer(markoPetrovic);
+		players.removePlayer(anaNikolic);
 	}
 }

@@ -115,7 +115,7 @@ public class MatchList implements OperationsMatches {
 	}
 
 	public ArrayList<Match> getMatches() {
-		return matches;
+		return this.matches;
 	}
 
 	public void setMatches(ArrayList<Match> matches) {

@@ -1,7 +1,9 @@
 package secondObligatoryHomework;
 
 public class Person {
-	protected String firstName, lastName, jmbg;
+	protected String firstName;
+	protected String lastName;
+	protected String jmbg;
 
 	public Person(String firstName, String lastName, String jmbg) {
 		this.setFirstName(firstName);

@@ -5,7 +5,8 @@ public class Match {
 		UNPLAYED, FIRST_WON, SECOND_WON, TIED
 	}
 
-	private String firstTeamName, secondTeamName;
+	private String firstTeamName;
+	private String secondTeamName;
 	private Result result;
 
 	public Match(String firstTeamName, String secondTeamName, Result result) {

@@ -44,7 +44,8 @@ public class Main {
 		teams.printTeamScores();
 		
 		System.out.println();
-		Tournament tournament = new Tournament();
+				
+		Tournament tournament = new Tournament(teams.getNumberOfTeams());
 		tournament.calculateFund(teams);
 		tournament.printAwards(teams);
 		

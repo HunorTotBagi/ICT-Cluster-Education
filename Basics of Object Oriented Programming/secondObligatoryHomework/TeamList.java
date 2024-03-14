@@ -82,29 +82,32 @@ public class TeamList implements OperationsTeam, OperationsFiles {
 		System.out.printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %n");
 		System.out.printf("~~~ Tournament final results ~~~ %n");
 		System.out.printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %n %n");
+
 		for (int i = 0; i < indexes.length; i++) {
 			Team currentTeam = teams.get(indexes[i]);
 			double price = fund.getPriceList()[i];
+
 			if (price != 0) {
-				System.out.printf("%d. Place %d points - %s +%.2f Euros %n", i + 1, currentTeam.getScore(), currentTeam.getName(), fund.getPriceList()[i]);
-			}
-			else {
+				System.out.printf("%d. Place %d points - %s +%.2f Euros %n", i + 1, currentTeam.getScore(),
+						currentTeam.getName(), fund.getPriceList()[i]);
+			} else {
 				System.out.printf("%d. Place %d points - %s %n", i + 1, currentTeam.getScore(), currentTeam.getName());
 			}
 		}
 	}
 
 	public void sortByScore(Tournament fund) {
-		int n = teams.size();
-		int[] scoreArray = new int[n];
-		int[] index = new int[n];
+		int numberOfTeams = teams.size();
+		int[] scoreArray = new int[numberOfTeams];
+		int[] index = new int[numberOfTeams];
 
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < numberOfTeams; i++) {
 			int score = teams.get(i).getScore();
 			scoreArray[i] = score;
 			index[i] = i;
 		}
-		sort(n, scoreArray, index);
+
+		sort(numberOfTeams, scoreArray, index);
 		printTeamScores(index, fund);
 	}
 
@@ -112,14 +115,14 @@ public class TeamList implements OperationsTeam, OperationsFiles {
 		for (int j = 1; j < n; j++) {
 			for (int i = 0; i < n - j; i++) {
 				if (score[i + 1] > score[i]) {
-					swap(score, i);
-					swap(index, i);
+					swapElements(score, i);
+					swapElements(index, i);
 				}
 			}
 		}
 	}
 
-	private void swap(int[] array, int i) {
+	private void swapElements(int[] array, int i) {
 		int temp = array[i];
 		array[i] = array[i + 1];
 		array[i + 1] = temp;
@@ -131,5 +134,9 @@ public class TeamList implements OperationsTeam, OperationsFiles {
 
 	public void setTeams(ArrayList<Team> teams) {
 		this.teams = teams;
+	}
+	
+	public int getNumberOfTeams() {
+		return this.getTeams().size();
 	}
 }

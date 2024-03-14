@@ -78,7 +78,7 @@ public class PlayerList implements OperationsPlayers, OperationsFiles {
 	}
 
 	public ArrayList<Player> getPlayers() {
-		return players;
+		return this.players;
 	}
 
 	public void setPlayers(ArrayList<Player> players) {

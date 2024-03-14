@@ -1,6 +1,6 @@
 package secondObligatoryHomework;
 
-public class TeamUnitTests {
+public class UnitTestsTeam {
 
 	public static void main(String[] args) {
 		Team crvenaZvezda = new Team("Crvena Zvezda", "Belgrade", 15);
@@ -17,7 +17,7 @@ public class TeamUnitTests {
 		teams.findTeam("Vojvodina");
 
 		System.out.println();
-		teams.removeTeam(vojvodina);
 		teams.removeTeam(partizan);
+		teams.removeTeam(vojvodina);
 	}
 }

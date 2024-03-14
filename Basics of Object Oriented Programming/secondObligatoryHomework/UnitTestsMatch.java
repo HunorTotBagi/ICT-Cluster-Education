@@ -2,7 +2,7 @@ package secondObligatoryHomework;
 
 import secondObligatoryHomework.Match.Result;
 
-public class MatchUnitTests {
+public class UnitTestsMatch {
 
 	public static void main(String[] args) {
 		Team crvenaZvezda = new Team("Crvena Zvezda", "Belgrade", 15);

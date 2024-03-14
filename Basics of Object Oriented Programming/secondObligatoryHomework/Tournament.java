@@ -2,18 +2,34 @@ package secondObligatoryHomework;
 
 public class Tournament {
 	private double totalFund;
-	private double[] priceList = new double[4];
+	private double[] priceList;
 
-	public void calculateFund(TeamList input) {
+	public Tournament(int totalNumberOfTeams) {
+		this.setPriceList(new double[totalNumberOfTeams]);
+	}
+
+	public void calculateFund(TeamList teamList) {
 		System.out.println("Calculating fund in progres...");
-		int numberOfTeams = input.getTeams().size();
-		double moneyFromTeams = 500 * numberOfTeams;
+
+		int numberOfTeams = teamList.getTeams().size();
+		double moneyFromTeams = calculateMoneyFromTeams(numberOfTeams);
+		double moneyFromPlayers = calculateMoneyFromPlayers(numberOfTeams, teamList);
+		calculatePriceList(moneyFromTeams, moneyFromPlayers);
+	}
+
+	private double calculateMoneyFromTeams(int numberOfTeams) {
+		return 500 * numberOfTeams;
+	}
+
+	private double calculateMoneyFromPlayers(int numberOfTeams, TeamList teamList) {
 		double moneyFromPlayers = 0;
-
 		for (int i = 0; i < numberOfTeams; i++) {
-			moneyFromPlayers += 100 * input.getTeams().get(i).getNumberOfPlayers();
+			moneyFromPlayers += 100 * teamList.getTeams().get(i).getNumberOfPlayers();
 		}
+		return moneyFromPlayers;
+	}
 
+	private void calculatePriceList(double moneyFromTeams, double moneyFromPlayers) {
 		this.setTotalFund(moneyFromTeams + moneyFromPlayers);
 		priceList[0] = this.getTotalFund() * 0.5;
 		priceList[1] = this.getTotalFund() * 0.3;
@@ -28,7 +44,7 @@ public class Tournament {
 	}
 
 	public double getTotalFund() {
-		return totalFund;
+		return this.totalFund;
 	}
 
 	private void setTotalFund(double totalFund) {
@@ -36,7 +52,7 @@ public class Tournament {
 	}
 
 	public double[] getPriceList() {
-		return priceList;
+		return this.priceList;
 	}
 
 	public void setPriceList(double[] priceList) {
