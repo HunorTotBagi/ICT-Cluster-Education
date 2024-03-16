@@ -7,6 +7,5 @@
 	</classpathentry>
 	<classpathentry kind="src" path="Basics of Programming"/>
 	<classpathentry kind="src" path="Basics of Object Oriented Programming"/>
-	<classpathentry kind="src" path="Exercise for upcoming test"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
