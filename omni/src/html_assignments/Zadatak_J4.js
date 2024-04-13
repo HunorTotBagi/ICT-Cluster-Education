@@ -21,7 +21,7 @@ import slika from './../assets/images/zad4.PNG';
 import './zadatak4_css.css';
 const Zadatak_J4 = () => {
   return <div>
-    <h2> Zadatak 4</h2>
+    <h2 className="z4_h2"> Zadatak 4</h2>
     <div className='zad_container'>
       <div> 
      
@@ -51,7 +51,7 @@ const Zadatak_J4 = () => {
   
   <fieldset>
   <h3>sandwiches:</h3>
-<p>Monday: </p>
+<p className="z4_p">Monday: </p>
 <label for="Tommato">Tommato Mozarela</label>
   <input type="radio" name="Tommato" value="Tommato"></input>
   <label for="Tommato"></label>
@@ -60,7 +60,7 @@ const Zadatak_J4 = () => {
 <input type="radio" name="Tommato" value="Chicken"></input>
 <label for="Chicken"></label>
 
-<p>Tuesday:</p>
+<p className="z4_p">Tuesday:</p>
  
 <label for="Greek">Greek Salad Wrap</label>
 <input type="radio" name="Greek" value="Greek"></input>
@@ -70,7 +70,7 @@ const Zadatak_J4 = () => {
 <input type="radio" name="Greek" value="Toto"></input>
 <label for="Toto"></label>
 
-<p>Wednesday:</p>
+<p className="z4_p">Wednesday:</p>
 
 <label for="Red">Red Pepper Hummus</label>
 <input type="radio" name="Red" value="Red"></input>
@@ -80,7 +80,7 @@ const Zadatak_J4 = () => {
 <input type="radio" name="Red" value="Roasted"></input>
 <label for="Roasted"></label>
 
-<p>Thursday:</p>
+<p className="z4_p">Thursday:</p>
 
 <label for="Carrot">Carrot-Ginger Hummus Wrap</label>
 <input type="radio" name="Carrot" value="Carrot"></input>
@@ -90,7 +90,7 @@ const Zadatak_J4 = () => {
 <input type="radio" name="Carrot" value="Egg"></input>
 <label for="Egg"></label>
 
-<p>Friday:</p>
+<p className="z4_p">Friday:</p>
 
 <label for="Dado">Dado Wrap</label>
 <input type="radio" name="Dado" value="Dado"></input>
