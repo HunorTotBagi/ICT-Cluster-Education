@@ -1,5 +1,7 @@
 package com.iktpreobuka.slajd2_zadaci.controllers;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +32,13 @@ public class HelperMethods {
 		for (int i = 0; i < clients.size(); i++) {
 			names.add(clients.get(i).getName());
 		}
+	}
+	
+	protected Period getAgeObject(List<BankClientEntity> clients, int i) {
+		LocalDate birthDate = clients.get(i).getBirthDate();
+		LocalDate currentDate = LocalDate.now();
+
+		Period age = Period.between(birthDate, currentDate);
+		return age;
 	}
 }
