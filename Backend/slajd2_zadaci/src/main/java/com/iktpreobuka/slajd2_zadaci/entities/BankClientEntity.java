@@ -9,13 +9,15 @@ public class BankClientEntity {
 	protected String email;
 	protected LocalDate birthDate;
 	protected String creditworthiness;
+	protected String city;
 
-	public BankClientEntity(Integer id, String name, String surname, String email, LocalDate birthDate) {
+	public BankClientEntity(Integer id, String name, String surname, String email, LocalDate birthDate, String city) {
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
 		this.birthDate = birthDate;
+		this.city = city;
 	}
 
 	public BankClientEntity() {
@@ -67,5 +69,13 @@ public class BankClientEntity {
 
 	public void setCreditworthiness(String creditworthiness) {
 		this.creditworthiness = creditworthiness;
+	}
+	
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 }
