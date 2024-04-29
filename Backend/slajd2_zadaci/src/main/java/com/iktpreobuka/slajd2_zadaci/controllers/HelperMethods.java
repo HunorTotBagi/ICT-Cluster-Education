@@ -34,11 +34,11 @@ public class HelperMethods {
 		}
 	}
 	
-	protected Period getAgeObject(List<BankClientEntity> clients, int i) {
+	protected int getClientAge(List<BankClientEntity> clients, int i) {
 		LocalDate birthDate = clients.get(i).getBirthDate();
 		LocalDate currentDate = LocalDate.now();
 
 		Period age = Period.between(birthDate, currentDate);
-		return age;
+		return age.getYears();
 	}
 }

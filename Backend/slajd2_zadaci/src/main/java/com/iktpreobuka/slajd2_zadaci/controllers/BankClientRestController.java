@@ -9,7 +9,6 @@ import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.iktpreobuka.slajd2_zadaci.entities.BankClientEntity;
@@ -85,9 +84,7 @@ public class BankClientRestController extends HelperMethods {
 		List<BankClientEntity> clients = getDataBase();
 
 		for (int i = 0; i < clients.size(); i++) {
-			Period age = getAgeObject(clients, i);
-
-			if (age.getYears() >= 65) {
+			if (getClientAge(clients, i) >= 65) {
 				clients.get(i).setCreditworthiness("N");
 			} else {
 				clients.get(i).setCreditworthiness("P");
@@ -116,11 +113,8 @@ public class BankClientRestController extends HelperMethods {
 		List<BankClientEntity> result = new ArrayList<>();
 
 		for (int i = 0; i < clients.size(); i++) {
-			Period age = getAgeObject(clients, i);
-
-			if (age.getYears() < Integer.parseInt(years)) {
+			if (getClientAge(clients, i) < Integer.parseInt(years))
 				result.add(clients.get(i));
-			}
 		}
 		return result;
 	}
@@ -131,9 +125,7 @@ public class BankClientRestController extends HelperMethods {
 		int counter = 0;
 
 		for (int i = 0; i < clients.size(); i++) {
-			Period age = getAgeObject(clients, i);
-
-			counter += age.getYears();
+			counter += getClientAge(clients, i);
 		}
 		return counter / clients.size();
 	}
