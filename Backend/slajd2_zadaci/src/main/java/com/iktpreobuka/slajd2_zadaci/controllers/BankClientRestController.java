@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +35,7 @@ public class BankClientRestController extends HelperMethods {
 	}
 
 	// Exercise 1
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/emails")
 	public List<String> emails() {
 		List<BankClientEntity> clients = getDataBase();
@@ -49,12 +51,13 @@ public class BankClientRestController extends HelperMethods {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/clients/firstLetters")
-	public List<String> firstLetters(@RequestParam("firstLetter") String firstLetter, @RequestParam("secondLetter") String secondLetter) {
+	public List<String> firstLetters(@RequestParam("firstLetter") String firstLetter,
+			@RequestParam("secondLetter") String secondLetter) {
 		List<BankClientEntity> clients = getDataBase();
 
 		return getFirstAndLastNameBasedOnParams(firstLetter, secondLetter, clients);
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/clients/sort/{order}")
 	public List<String> getSortedClientNames(@PathVariable String order) {
 		List<BankClientEntity> clients = getDataBase();
@@ -76,7 +79,7 @@ public class BankClientRestController extends HelperMethods {
 	}
 
 	// Exercises 2
-	
+
 	@RequestMapping(method = RequestMethod.PUT, value = "/clients/bonitet")
 	public String decisionForCredit() {
 		List<BankClientEntity> clients = getDataBase();
@@ -129,11 +132,11 @@ public class BankClientRestController extends HelperMethods {
 	}
 
 	// Exercises 3
-	
+
 	@RequestMapping(method = RequestMethod.PUT, value = "/clients/changelocation/{clientId}")
 	public String changeCity(@PathVariable String clientId, @RequestParam("city") String city) {
 		List<BankClientEntity> clients = getDataBase();
-		
+
 		for (int i = 0; i < clients.size(); i++) {
 			if (clients.get(i).getId().equals(clientId)) {
 				clients.get(i).setCity(city);
@@ -141,7 +144,7 @@ public class BankClientRestController extends HelperMethods {
 		}
 		return "Changed city for client";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/clients/from/{city}")
 	public List<BankClientEntity> getClientsByCity(@PathVariable String city) {
 		List<BankClientEntity> clients = getDataBase();
@@ -160,7 +163,7 @@ public class BankClientRestController extends HelperMethods {
 			@RequestParam("age") String age) {
 		List<BankClientEntity> clients = getDataBase();
 		List<BankClientEntity> result = new ArrayList<>();
-		
+
 		for (int i = 0; i < clients.size(); i++) {
 			if (clients.get(i).getCity().toLowerCase().equals(city)
 					&& getClientAge(clients, i) < Integer.parseInt(age)) {
@@ -168,5 +171,36 @@ public class BankClientRestController extends HelperMethods {
 			}
 		}
 		return result;
+	}
+
+	// Exercise 4
+
+	@RequestMapping(method = RequestMethod.GET, value = "/sumaNiza/{n}")
+	public int sumOfFirstN(@PathVariable String n) {
+		int number = Integer.parseInt(n);
+
+		return number * (number + 1) / 2;
+	}
+
+	protected Map<String, String> getDictionary() {
+		Map<String, String> englishToSerbian = new HashMap<>();
+
+		englishToSerbian.put("hello", "zdravo");
+		englishToSerbian.put("goodbye", "zbogom");
+		englishToSerbian.put("thank you", "hvala");
+		englishToSerbian.put("yes", "da");
+		englishToSerbian.put("no", "ne");
+
+		return englishToSerbian;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/recnik/{trazena_rec}")
+	public String translate(@PathVariable String trazena_rec) {
+		Map<String, String> dictionary = getDictionary();
+
+		if (dictionary.containsKey(trazena_rec)) {
+			return dictionary.get(trazena_rec);
+		}
+		return String.format("Rec %s ne postoji u recniku.", trazena_rec);
 	}
 }
