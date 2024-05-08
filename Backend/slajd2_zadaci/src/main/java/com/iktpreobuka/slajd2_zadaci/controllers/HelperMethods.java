@@ -22,7 +22,7 @@ public class HelperMethods {
 		List<String> names = new ArrayList<>();
 		for (int i = 0; i < clients.size(); i++) {
 			String name = clients.get(i).getName();
-			if (name.toLowerCase().startsWith(firstLetter)) {
+			if (name.toLowerCase().startsWith(firstLetter.toLowerCase())) {
 				names.add(name);
 			}
 		}
