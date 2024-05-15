@@ -8,6 +8,8 @@ public class UserEntity {
 	protected String password;
 	protected String email;
 	protected Role role;
+	
+	public UserEntity() {}
 
 	public UserEntity(int id, String firstName, String lastName, String username, String password, String email, Role role) {
 		setId(id);
