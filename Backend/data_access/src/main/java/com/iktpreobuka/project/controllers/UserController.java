@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.iktpreobuka.project.entities.AddressEntity;
 import com.iktpreobuka.project.entities.UserEntity;
+import com.iktpreobuka.project.repositories.AddressRepository;
 import com.iktpreobuka.project.repositories.UserRepository;
 
 @RestController
@@ -17,6 +19,9 @@ public class UserController {
 
 	@Autowired
 	protected UserRepository userRepository;
+
+	@Autowired
+	protected AddressRepository addressRepository;
 
 	@RequestMapping(method = RequestMethod.POST)
 	public UserEntity addNewUser(@RequestParam String name, @RequestParam String email) {
@@ -50,7 +55,7 @@ public class UserController {
 	}
 
 	// Other way of doing this with json body
-	
+
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateBody/{id}")
 	public UserEntity updateUser(@RequestBody UserEntity modifiedUser, @PathVariable String id) {
 		UserEntity user = userRepository.findById(Integer.parseInt(id)).get();
@@ -62,14 +67,24 @@ public class UserController {
 		}
 		return new UserEntity();
 	}
-	
+
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public UserEntity updateUser(@PathVariable String id) {
 		UserEntity user = userRepository.findById(Integer.parseInt(id)).get();
 		if (user != null) {
 			userRepository.delete(user);
 			return user;
-		};
+		}
+		;
 		return new UserEntity();
+	}
+
+	@RequestMapping(method = RequestMethod.PUT, value = "/{id}/address")
+	public UserEntity addAddress(@PathVariable String id, @RequestParam String address) {
+		UserEntity userDB = userRepository.findById(Integer.parseInt(id)).get();
+		AddressEntity addressDB = addressRepository.findById(Integer.parseInt(address)).get();
+		userDB.setAddress(addressDB);
+		userRepository.save(userDB);
+		return userDB;
 	}
 }
