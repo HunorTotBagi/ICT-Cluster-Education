@@ -18,16 +18,31 @@ public class AddressDaoImpl implements AddressDao {
 
 	@PersistenceContext
 	protected EntityManager em;
-	
+
 	@Autowired
 	protected AddressRepository addressRepository;
+
+	@Override
+	public Iterable<AddressEntity> findAll() {
+		return addressRepository.findAll();
+	}
+
+	@Override
+	public AddressEntity createAddress(String city, String country, String street) {
+		AddressEntity newAddress = new AddressEntity();
+		newAddress.setCity(city);
+		newAddress.setCountry(country);
+		newAddress.setStreet(street);
+		addressRepository.save(newAddress);
+		return newAddress;
+	}
 
 	/*
 	 * 
 	 * This is currently not working, need fixing
 	 * 
 	 */
-	
+
 	@Override
 	public List<AddressEntity> findAddressesByUsername(String username) {
 		// TODO Auto-generated method stub
@@ -45,9 +60,7 @@ public class AddressDaoImpl implements AddressDao {
 		 * 
 		 */
 
-		String sql = "SELECT a" + 
-		"FROM AddressEntity a left join fetch a.users u	"
-				+ "WHERE u.name = :username";
+		String sql = "SELECT a" + "FROM AddressEntity a left join fetch a.users u	" + "WHERE u.name = :username";
 		Query query = em.createQuery(sql);
 		// First param: name of the variable in HQL ; Second param: name of the variable
 		// from Java code that is used as filter (from method)
@@ -57,20 +70,4 @@ public class AddressDaoImpl implements AddressDao {
 		result = query.getResultList();
 		return result;
 	}
-
-	@Override
-	public Iterable<AddressEntity> findAll() {
-		return addressRepository.findAll();
-	}
-
-	@Override
-	public AddressEntity createAddress(String city, String country, String street) {
-		AddressEntity newAddress = new AddressEntity();
-		newAddress.setCity(city);
-		newAddress.setCountry(country);
-		newAddress.setStreet(street);
-		addressRepository.save(newAddress);
-		return newAddress;
-	}
-
 }

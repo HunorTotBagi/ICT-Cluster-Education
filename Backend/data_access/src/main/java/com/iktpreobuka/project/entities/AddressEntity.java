@@ -17,7 +17,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Version;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class AddressEntity {
 
 	@Id
@@ -36,8 +36,11 @@ public class AddressEntity {
 	@JsonIgnore
 	protected List<UserEntity> users = new ArrayList<>();
 
+	public AddressEntity() {
+	}
+
 	public List<UserEntity> getUsers() {
-		return users;
+		return this.users;
 	}
 
 	public void setUsers(List<UserEntity> users) {
@@ -45,7 +48,7 @@ public class AddressEntity {
 	}
 
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Integer id) {
@@ -53,7 +56,7 @@ public class AddressEntity {
 	}
 
 	public Integer getVersion() {
-		return version;
+		return this.version;
 	}
 
 	public void setVersion(Integer version) {
@@ -61,7 +64,7 @@ public class AddressEntity {
 	}
 
 	public String getCity() {
-		return city;
+		return this.city;
 	}
 
 	public void setCity(String city) {
@@ -69,7 +72,7 @@ public class AddressEntity {
 	}
 
 	public String getStreet() {
-		return street;
+		return this.street;
 	}
 
 	public void setStreet(String street) {
@@ -77,16 +80,10 @@ public class AddressEntity {
 	}
 
 	public String getCountry() {
-		return country;
+		return this.country;
 	}
 
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
-	public AddressEntity() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 }
