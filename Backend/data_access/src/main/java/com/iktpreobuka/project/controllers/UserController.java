@@ -80,6 +80,11 @@ public class UserController {
 	public UserEntity findByEmail(@RequestParam String email) {
 		return userRepository.findByEmail(email).get();
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/by-name")
+	public UserEntity findByName(@RequestParam String name) {
+		return userRepository.findByName(name).get();
+	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}/address")
 	public UserEntity addAddress(@PathVariable String id, @RequestParam String address) {
