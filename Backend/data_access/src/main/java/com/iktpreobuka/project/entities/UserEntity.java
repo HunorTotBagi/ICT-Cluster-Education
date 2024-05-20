@@ -12,12 +12,7 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class UserEntity {
 
-	public AddressEntity getAddress() {
-		return address;
-	}
-
-	public void setAddress(AddressEntity address) {
-		this.address = address;
+	public UserEntity() {
 	}
 
 	@Id
@@ -31,16 +26,8 @@ public class UserEntity {
 	@JoinColumn(name = "address")
 	private AddressEntity address;
 
-	public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Integer id) {
@@ -48,7 +35,7 @@ public class UserEntity {
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -56,15 +43,26 @@ public class UserEntity {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public UserEntity() {
-		super();
-		// TODO Auto-generated constructor stub
+	public String getComment() {
+		return this.comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public AddressEntity getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(AddressEntity address) {
+		this.address = address;
 	}
 }
