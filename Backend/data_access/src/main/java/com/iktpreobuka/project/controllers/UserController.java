@@ -1,6 +1,10 @@
 package com.iktpreobuka.project.controllers;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,15 +79,37 @@ public class UserController {
 		}
 		return new UserEntity();
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/by-email")
 	public UserEntity findByEmail(@RequestParam String email) {
 		return userRepository.findByEmail(email).get();
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/by-name")
-	public UserEntity findByName(@RequestParam String name) {
-		return userRepository.findByName(name).get();
+	public List<UserEntity> findByNameOrderByEmailAsc(@RequestParam String name) {
+		return userRepository.findByNameOrderByEmailAsc(name);
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/by-dob")
+	public List<UserEntity> findByDateOfBirthOrderByDateOfBirthAscNameAsc(
+			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate localDate) {
+		return userRepository.findByDateOfBirthOrderByDateOfBirthAscNameAsc(localDate);
+	}
+
+	@RequestMapping(method = RequestMethod.POST, value = "withDate")
+	public UserEntity addNewUserPlusDate(@RequestParam String name, @RequestParam String email,
+			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate localDate) {
+		UserEntity user = new UserEntity();
+		user.setName(name);
+		user.setEmail(email);
+		user.setDateOfBirth(localDate);
+		userRepository.save(user);
+		return user;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/by-name-first-lettter")
+	public List<UserEntity> findByNameStartingWithIgnoreCase(@RequestParam String firstLetter) {
+		return userRepository.findByNameStartingWithIgnoreCase(firstLetter);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}/address")
