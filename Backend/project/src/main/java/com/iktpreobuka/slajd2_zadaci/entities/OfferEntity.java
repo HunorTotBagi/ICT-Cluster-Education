@@ -1,10 +1,11 @@
 package com.iktpreobuka.slajd2_zadaci.entities;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
+import com.iktpreobuka.slajd2_zadaci.enums.OfferStatus;
+
 public class OfferEntity {
-	protected int id;
+	protected Integer id;
 	protected String offerName;
 	protected String offerDescription;
 	protected LocalDate offerCreated;

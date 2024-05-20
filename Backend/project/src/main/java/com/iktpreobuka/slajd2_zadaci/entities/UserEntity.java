@@ -1,5 +1,7 @@
 package com.iktpreobuka.slajd2_zadaci.entities;
 
+import com.iktpreobuka.slajd2_zadaci.enums.Role;
+
 public class UserEntity {
 	protected int id;
 	protected String firstName;
@@ -8,10 +10,12 @@ public class UserEntity {
 	protected String password;
 	protected String email;
 	protected Role role;
-	
-	public UserEntity() {}
 
-	public UserEntity(int id, String firstName, String lastName, String username, String password, String email, Role role) {
+	public UserEntity() {
+	}
+
+	public UserEntity(int id, String firstName, String lastName, String username, String password, String email,
+			Role role) {
 		setId(id);
 		setFirstName(firstName);
 		setLastName(lastName);

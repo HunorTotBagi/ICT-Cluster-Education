@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.iktpreobuka.slajd2_zadaci.entities.Role;
 import com.iktpreobuka.slajd2_zadaci.entities.UserEntity;
+import com.iktpreobuka.slajd2_zadaci.enums.Role;
 
 @RestController
 @RequestMapping(value = "/project/users")

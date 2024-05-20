@@ -5,10 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.iktpreobuka.slajd2_zadaci.entities.OfferEntity;
-import com.iktpreobuka.slajd2_zadaci.entities.OfferStatus;
+import com.iktpreobuka.slajd2_zadaci.entities.UserEntity;
+import com.iktpreobuka.slajd2_zadaci.enums.OfferStatus;
+import com.iktpreobuka.slajd2_zadaci.enums.Role;
 
 @RestController
 @RequestMapping(value = "/project/offers")
@@ -31,5 +35,46 @@ public class OfferController {
 				LocalDate.of(2022, 7, 1), LocalDate.of(2023, 7, 10), (float) 699.50, " ", 4, 8, OfferStatus.EXPIRED));
 
 		return offers;
+	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public List<OfferEntity> getOffers() {
+		return getDB();
+	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	public OfferEntity addOffer(@RequestParam String id, @RequestParam String offerName,
+	        @RequestParam String offerDescription, @RequestParam LocalDate offerCreated,
+	        @RequestParam LocalDate offerExpires, @RequestParam String regularPrice, 
+	        @RequestParam String imagePath, @RequestParam String availableOffers, 
+	        @RequestParam String boughtOffers, @RequestParam String offerStatus) {
+	    List<OfferEntity> users = getDB();
+
+	    OfferStatus status = OfferStatus.valueOf(offerStatus.toUpperCase());
+
+	    OfferEntity newOffer = new OfferEntity(Integer.parseInt(id), offerName, offerDescription, 
+	            offerCreated, offerExpires, Float.parseFloat(regularPrice), imagePath, 
+	            Integer.parseInt(availableOffers), Integer.parseInt(boughtOffers), status);
+
+	    users.add(newOffer);
+	    return newOffer;
+	}
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public OfferEntity modifyOffer(@RequestParam String id, @RequestParam String offerName,
+	        @RequestParam String offerDescription, @RequestParam LocalDate offerCreated,
+	        @RequestParam LocalDate offerExpires, @RequestParam String regularPrice, 
+	        @RequestParam String imagePath, @RequestParam String availableOffers, 
+	        @RequestParam String boughtOffers, @RequestParam String offerStatus) {
+	    List<OfferEntity> users = getDB();
+
+	    OfferStatus status = OfferStatus.valueOf(offerStatus.toUpperCase());
+
+	    OfferEntity newOffer = new OfferEntity(Integer.parseInt(id), offerName, offerDescription, 
+	            offerCreated, offerExpires, Float.parseFloat(regularPrice), imagePath, 
+	            Integer.parseInt(availableOffers), Integer.parseInt(boughtOffers), status);
+
+	    users.add(newOffer);
+	    return newOffer;
 	}
 }
