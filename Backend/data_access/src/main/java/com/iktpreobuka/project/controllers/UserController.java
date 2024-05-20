@@ -33,7 +33,7 @@ public class UserController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public Iterable<UserEntity> getUsers() {
+	public Iterable<UserEntity> getAllUsers() {
 		return userRepository.findAll();
 	}
 
@@ -54,8 +54,6 @@ public class UserController {
 		return new UserEntity();
 	}
 
-	// Other way of doing this with json body
-
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateBody/{id}")
 	public UserEntity updateUser(@RequestBody UserEntity modifiedUser, @PathVariable String id) {
 		UserEntity user = userRepository.findById(Integer.parseInt(id)).get();
@@ -75,8 +73,12 @@ public class UserController {
 			userRepository.delete(user);
 			return user;
 		}
-		;
 		return new UserEntity();
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/by-email")
+	public UserEntity findByEmail(@RequestParam String email) {
+		return userRepository.findByEmail(email).get();
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}/address")
