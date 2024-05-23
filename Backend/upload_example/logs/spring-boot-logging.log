@@ -1,0 +1,13 @@
+2024-05-22T18:50:27.792+02:00  INFO 8160 --- [upload_example] [restartedMain] c.i.u.UploadExampleApplication           : Starting UploadExampleApplication using Java 17.0.10 with PID 8160 (C:\Users\htotbagi\eclipse-workspace\Java - ICT Cluster\Backend\upload_example\target\classes started by htotbagi in C:\Users\htotbagi\eclipse-workspace\Java - ICT Cluster\Backend\upload_example)
+2024-05-22T18:50:27.796+02:00  INFO 8160 --- [upload_example] [restartedMain] c.i.u.UploadExampleApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T18:50:27.901+02:00  INFO 8160 --- [upload_example] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-22T18:50:27.902+02:00  INFO 8160 --- [upload_example] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-22T18:50:29.413+02:00  INFO 8160 --- [upload_example] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-22T18:50:29.427+02:00  INFO 8160 --- [upload_example] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T18:50:29.428+02:00  INFO 8160 --- [upload_example] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-22T18:50:29.507+02:00  INFO 8160 --- [upload_example] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T18:50:29.508+02:00  INFO 8160 --- [upload_example] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1604 ms
+2024-05-22T18:50:30.036+02:00  INFO 8160 --- [upload_example] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-22T18:50:30.101+02:00  INFO 8160 --- [upload_example] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-22T18:50:30.116+02:00  INFO 8160 --- [upload_example] [restartedMain] c.i.u.UploadExampleApplication           : Started UploadExampleApplication in 2.863 seconds (process running for 4.021)
+2024-05-22T20:14:00.287+02:00  INFO 8160 --- [upload_example] [RMI TCP Connection(87)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
