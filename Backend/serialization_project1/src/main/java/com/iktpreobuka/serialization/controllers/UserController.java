@@ -21,21 +21,21 @@ import com.iktpreobuka.serialization.security.Views;
 @RequestMapping(value = "/api/v1/users")
 public class UserController {
 
-	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
-	@JsonView(Views.Admin.class)
-	public ResponseEntity<?> getUserByID(@PathVariable Integer id) {
-		try {
-			List<UserEntity> users = getDummyDB();
-			for (UserEntity userEntity : users) {
-				if (userEntity.getId().equals(id)) {
-					return new ResponseEntity<UserEntity>(userEntity, HttpStatus.OK);
-				}
-			}
-			return new ResponseEntity<String>("User not found", HttpStatus.NOT_FOUND);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+    @JsonView(Views.Admin.class)
+    public ResponseEntity<?> getUserByID(@PathVariable Integer id) {
+        try {
+            List<UserEntity> users = getDummyDB();
+            for (UserEntity userEntity : users) {
+                if (userEntity.getId().equals(id)) {
+                    return new ResponseEntity<UserEntity>(userEntity, HttpStatus.OK);
+                }
+            }
+            return new ResponseEntity<String>("User not found", HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 	@GetMapping("/public")
 	@JsonView(Views.Public.class)
