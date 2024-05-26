@@ -3,16 +3,9 @@ package com.iktpreobuka.slajd2_zadaci.controllers;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import com.iktpreobuka.slajd2_zadaci.entities.OfferEntity;
-import com.iktpreobuka.slajd2_zadaci.entities.UserEntity;
 import com.iktpreobuka.slajd2_zadaci.enums.OfferStatus;
-import com.iktpreobuka.slajd2_zadaci.enums.Role;
 
 @RestController
 @RequestMapping(value = "/project/offers")
@@ -37,12 +30,12 @@ public class OfferController {
 		return offers;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping
 	public List<OfferEntity> getOffers() {
 		return getDB();
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@PostMapping
 	public OfferEntity addOffer(@RequestParam String id, @RequestParam String offerName,
 	        @RequestParam String offerDescription, @RequestParam LocalDate offerCreated,
 	        @RequestParam LocalDate offerExpires, @RequestParam String regularPrice, 
@@ -60,8 +53,8 @@ public class OfferController {
 	    return newOffer;
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
-	public OfferEntity modifyOffer(@RequestParam String id, @RequestParam String offerName,
+	@PutMapping("/{id}")
+	public OfferEntity modifyOffer(@PathVariable String id, @RequestParam String offerName,
 	        @RequestParam String offerDescription, @RequestParam LocalDate offerCreated,
 	        @RequestParam LocalDate offerExpires, @RequestParam String regularPrice, 
 	        @RequestParam String imagePath, @RequestParam String availableOffers, 

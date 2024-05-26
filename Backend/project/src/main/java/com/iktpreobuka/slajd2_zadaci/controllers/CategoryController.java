@@ -3,13 +3,18 @@ package com.iktpreobuka.slajd2_zadaci.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.iktpreobuka.slajd2_zadaci.entities.CategoryEntity;
+import com.iktpreobuka.slajd2_zadaci.repositories.UserRepository;
 
 @RestController
 @RequestMapping(value = "/project/categories")
@@ -17,15 +22,15 @@ public class CategoryController {
 
 	public List<CategoryEntity> getDB() {
 		List<CategoryEntity> categories = new ArrayList<>();
-
+    
 		categories.add(new CategoryEntity(1, "music", "description 1"));
-		categories.add(new CategoryEntity(2, "food", "description 2"));
-		categories.add(new CategoryEntity(3, "entertainment", "description 3"));
-
+	  categories.add(new CategoryEntity(2, "food", "description 2"));
+      categories.add(new CategoryEntity(3, "entertainment", "description 3"));
+	
 		return categories;
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@PostMapping
 	public CategoryEntity addNewCategory(@RequestParam("id") String id,
 			@RequestParam("categoryName") String categoryName,
 			@RequestParam("categoryDescription") String categoryDescription) {
@@ -35,7 +40,7 @@ public class CategoryController {
 		return newCategory;
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/{id}")
+	@PutMapping("/{id}")
 	public CategoryEntity modifyCategory(@PathVariable String id, @RequestParam("categoryName") String categoryName,
 			@RequestParam("categoryDescription") String categoryDescription) {
 
@@ -61,7 +66,7 @@ public class CategoryController {
 		return category;
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+	@DeleteMapping("/{id}")
 	public CategoryEntity deleteCategory(@PathVariable String id) {
 
 		List<CategoryEntity> categories = getDB();
@@ -87,7 +92,7 @@ public class CategoryController {
 		return category;
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	@GetMapping("/{id}")
 	public CategoryEntity getCategory(@PathVariable String id) {
 
 		List<CategoryEntity> categories = getDB();

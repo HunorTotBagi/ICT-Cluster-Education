@@ -2,7 +2,15 @@ package com.iktpreobuka.slajd2_zadaci.entities;
 
 import com.iktpreobuka.slajd2_zadaci.enums.Role;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class UserEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected int id;
 	protected String firstName;
 	protected String lastName;
@@ -14,20 +22,8 @@ public class UserEntity {
 	public UserEntity() {
 	}
 
-	public UserEntity(int id, String firstName, String lastName, String username, String password, String email,
-			Role role) {
-		setId(id);
-		setFirstName(firstName);
-		setLastName(lastName);
-		setUsername(username);
-		setPassword(password);
-		setEmail(email);
-		setRole(role);
-	}
-
 	public int getId() {
 		return this.id;
-
 	}
 
 	public void setId(int id) {
