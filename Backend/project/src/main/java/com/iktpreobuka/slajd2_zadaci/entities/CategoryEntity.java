@@ -1,6 +1,14 @@
 package com.iktpreobuka.slajd2_zadaci.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class CategoryEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected int id;
 	protected String categoryName;
 	protected String categoryDescription;

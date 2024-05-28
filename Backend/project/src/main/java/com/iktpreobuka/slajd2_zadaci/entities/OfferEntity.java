@@ -4,7 +4,15 @@ import java.time.LocalDate;
 
 import com.iktpreobuka.slajd2_zadaci.enums.OfferStatus;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class OfferEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Integer id;
 	protected String offerName;
 	protected String offerDescription;
