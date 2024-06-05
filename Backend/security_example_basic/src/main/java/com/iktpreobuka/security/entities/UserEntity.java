@@ -1,16 +1,45 @@
 package com.iktpreobuka.security.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "user")
+@JsonIgnoreProperties({ "handler", "hibernateLazyInitializer" })
 public class UserEntity {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "user_id")
 	protected Integer id;
+	
+	@Column(name = "name")
 	protected String name;
+	
+	@Column(name = "last_name")
 	protected String lastName;
 
 	@JsonIgnore
+	@Column(name = "password")
 	protected String password;
+	
+	@Column(name = "email")
 	protected String email;
+	
+	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+	@JoinColumn(name = "role")
+	protected RoleEntity role;
 
 	public UserEntity() {
 	}
@@ -62,6 +91,4 @@ public class UserEntity {
 	public void setRole(RoleEntity role) {
 		this.role = role;
 	}
-
-	protected RoleEntity role;
 }
