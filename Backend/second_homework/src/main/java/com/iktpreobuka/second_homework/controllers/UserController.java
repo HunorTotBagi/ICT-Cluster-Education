@@ -15,7 +15,7 @@ import com.iktpreobuka.second_homework.entities.dto.UserDTO;
 import com.iktpreobuka.second_homework.services.UserService;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/v1/users")
 public class UserController {
 
 	@Autowired

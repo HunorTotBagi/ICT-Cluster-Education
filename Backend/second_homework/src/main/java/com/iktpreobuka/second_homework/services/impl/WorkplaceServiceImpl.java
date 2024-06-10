@@ -1,6 +1,7 @@
 package com.iktpreobuka.second_homework.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.iktpreobuka.second_homework.entities.UserEntity;
 import com.iktpreobuka.second_homework.entities.WorkplaceEntity;
@@ -9,6 +10,7 @@ import com.iktpreobuka.second_homework.repositories.UserRepository;
 import com.iktpreobuka.second_homework.repositories.WorkplaceRepository;
 import com.iktpreobuka.second_homework.services.WorkplaceService;
 
+@Service
 public class WorkplaceServiceImpl implements WorkplaceService {
 
 	@Autowired
