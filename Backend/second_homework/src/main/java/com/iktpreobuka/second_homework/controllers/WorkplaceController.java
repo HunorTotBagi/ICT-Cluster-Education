@@ -17,6 +17,7 @@ import com.iktpreobuka.second_homework.services.WorkplaceService;
 @RestController
 @RequestMapping("/api/v1/workplaces")
 public class WorkplaceController {
+	
 	@Autowired
 	private WorkplaceService workplaceService;
 
