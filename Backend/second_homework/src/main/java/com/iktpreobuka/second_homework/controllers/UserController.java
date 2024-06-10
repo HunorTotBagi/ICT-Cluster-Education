@@ -17,32 +17,32 @@ import com.iktpreobuka.second_homework.services.UserService;
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
-	
-    @Autowired
-    private UserService userService;
-    
-    @PostMapping
-    public UserEntity createUser(@RequestBody UserDTO userDTO) {
-        return userService.createUser(userDTO);
-    }
 
-    @GetMapping
-    public Iterable<UserEntity> getAllUsers() {
-        return userService.getAllUsers();
-    }
+	@Autowired
+	private UserService userService;
 
-    @GetMapping("/{id}")
-    public UserEntity getUserById(@PathVariable String id) {
-        return userService.getUserById(id);
-    }
+	@PostMapping
+	public UserEntity createUser(@RequestBody UserDTO userDTO) {
+		return userService.createUser(userDTO);
+	}
 
-    @PutMapping("/{id}")
-    public UserEntity updateUser(@PathVariable String id, @RequestBody UserDTO userDTO) {
-        return userService.updateUser(id, userDTO);
-    }
+	@GetMapping
+	public Iterable<UserEntity> getAllUsers() {
+		return userService.getAllUsers();
+	}
 
-    @DeleteMapping("/{id}")
-    public UserEntity deleteUser(@PathVariable String id) {
-        return userService.deleteUser(id);
-    }
+	@GetMapping("/{id}")
+	public UserEntity getUserById(@PathVariable String id) {
+		return userService.getUserById(id);
+	}
+
+	@PutMapping("/{id}")
+	public UserEntity updateUser(@PathVariable String id, @RequestBody UserDTO userDTO) {
+		return userService.updateUser(id, userDTO);
+	}
+
+	@DeleteMapping("/{id}")
+	public UserEntity deleteUser(@PathVariable String id) {
+		return userService.deleteUser(id);
+	}
 }

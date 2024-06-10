@@ -1,7 +1,5 @@
 package com.iktpreobuka.second_homework.entities;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
