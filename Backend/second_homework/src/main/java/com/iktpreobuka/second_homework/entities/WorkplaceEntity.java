@@ -1,5 +1,8 @@
 package com.iktpreobuka.second_homework.entities;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.iktpreobuka.second_homework.security.Views;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,10 +14,11 @@ public class WorkplaceEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
+	@JsonView(Views.Employee.class)
 	private String name;
 
 	@OneToOne
+	@JsonView(Views.Manager.class)
 	private UserEntity user;
 
 	public WorkplaceEntity() {

@@ -1,5 +1,8 @@
 package com.iktpreobuka.second_homework.entities;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.iktpreobuka.second_homework.security.Views;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,9 +14,13 @@ public class UserEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@JsonView(Views.Employee.class)
 	private String name;
+
+	@JsonView(Views.Manager.class)
 	private String email;
 
+	@JsonView(Views.Director.class)
 	private EmploymentLevel employmentLevel;
 
 	public UserEntity() {

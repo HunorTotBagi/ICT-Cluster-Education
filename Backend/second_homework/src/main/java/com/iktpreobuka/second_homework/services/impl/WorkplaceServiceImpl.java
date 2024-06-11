@@ -35,7 +35,12 @@ public class WorkplaceServiceImpl implements WorkplaceService {
 
 	@Override
 	public WorkplaceEntity getWorkplaceById(String id) {
-		return workplaceRepository.findById(Integer.parseInt(id)).get();
+		try {
+			int workplaceId = Integer.parseInt(id);
+			return workplaceRepository.findById(workplaceId).get();
+		} catch (NumberFormatException e) {
+			return new WorkplaceEntity();
+		}
 	}
 
 	@Override

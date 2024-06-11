@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.iktpreobuka.second_homework.entities.UserEntity;
 import com.iktpreobuka.second_homework.entities.dto.UserDTO;
+import com.iktpreobuka.second_homework.security.Views;
 import com.iktpreobuka.second_homework.services.UserService;
 
 @RestController
@@ -26,13 +28,39 @@ public class UserController {
 		return userService.createUser(userDTO);
 	}
 
-	@GetMapping
-	public Iterable<UserEntity> getAllUsers() {
+	@GetMapping("/employee")
+	@JsonView(Views.Employee.class)
+	public Iterable<UserEntity> getAllUsersForEmployee() {
+		return userService.getAllUsers();
+	}
+	
+	@GetMapping("/manager")
+	@JsonView(Views.Manager.class)
+	public Iterable<UserEntity> getAllUsersForManager() {
+		return userService.getAllUsers();
+	}
+	
+	@GetMapping("/director")
+	@JsonView(Views.Director.class)
+	public Iterable<UserEntity> getAllUsersForDirector() {
 		return userService.getAllUsers();
 	}
 
-	@GetMapping("/{id}")
-	public UserEntity getUserById(@PathVariable String id) {
+	@GetMapping("/{id}/employee")
+	@JsonView(Views.Employee.class)
+	public UserEntity getUserByIdForEmployee(@PathVariable String id) {
+		return userService.getUserById(id);
+	}
+	
+	@GetMapping("/{id}/manager")
+	@JsonView(Views.Manager.class)
+	public UserEntity getUserByIdForManager(@PathVariable String id) {
+		return userService.getUserById(id);
+	}
+	
+	@GetMapping("/{id}/director")
+	@JsonView(Views.Director.class)
+	public UserEntity getUserByIdForDirector(@PathVariable String id) {
 		return userService.getUserById(id);
 	}
 

@@ -17,11 +17,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserEntity createUser(UserDTO userDTOBody) {
 		UserEntity user = new UserEntity();
-		user.setName(userDTOBody.getName());
-		user.setEmail(userDTOBody.getEmail());
-		user.setEmploymentLevel(userDTOBody.getEmploymentLevel());
-		userRepository.save(user);
-		return user;
+		UserDtoToUserEntity(userDTOBody, user);
+		return userRepository.save(user);
 	}
 
 	@Override
@@ -31,18 +28,20 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserEntity getUserById(String id) {
-		return userRepository.findById(Integer.parseInt(id)).get();
+		try {
+			int userId = Integer.parseInt(id);
+			return userRepository.findById(userId).get();
+		} catch (NumberFormatException e) {
+			return new UserEntity();
+		}
 	}
 
 	@Override
 	public UserEntity updateUser(String id, UserDTO userDTOBody) {
 		UserEntity user = userRepository.findById(Integer.parseInt(id)).get();
 		if (user != null) {
-			user.setName(userDTOBody.getName());
-			user.setEmail(userDTOBody.getEmail());
-			user.setEmploymentLevel(userDTOBody.getEmploymentLevel());
-			userRepository.save(user);
-			return user;
+			UserDtoToUserEntity(userDTOBody, user);
+			return userRepository.save(user);
 		}
 		return new UserEntity();
 	}
@@ -55,5 +54,11 @@ public class UserServiceImpl implements UserService {
 			return user;
 		}
 		return new UserEntity();
+	}
+
+	private void UserDtoToUserEntity(UserDTO userDTO, UserEntity user) {
+		user.setName(userDTO.getName());
+		user.setEmail(userDTO.getEmail());
+		user.setEmploymentLevel(userDTO.getEmploymentLevel());
 	}
 }
