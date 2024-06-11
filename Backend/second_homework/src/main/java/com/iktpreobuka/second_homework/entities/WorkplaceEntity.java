@@ -13,12 +13,14 @@ import jakarta.persistence.OneToOne;
 public class WorkplaceEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Employee.class)
 	private Integer id;
+	
 	@JsonView(Views.Employee.class)
 	private String name;
 
 	@OneToOne
-	@JsonView(Views.Manager.class)
+	@JsonView(Views.Director.class)
 	private UserEntity user;
 
 	public WorkplaceEntity() {

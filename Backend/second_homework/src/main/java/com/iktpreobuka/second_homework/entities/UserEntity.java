@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Employee.class)
 	private Integer id;
 
 	@JsonView(Views.Employee.class)
