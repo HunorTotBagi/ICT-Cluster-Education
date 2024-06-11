@@ -3,6 +3,7 @@ package com.iktpreobuka.myfirstproject.controllers;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,9 +15,9 @@ public class MyFirstController {
 		return "Moja prva aplikacija";
 	}
 
-	@RequestMapping("/greetings")
-	public String greetings() {
-		return "Hello Hunor!";
+	@RequestMapping("/greetings/{name}")
+	public String greetings(@PathVariable String name) {
+		return String.format("Hello %s!", name);
 	}
 
 	@RequestMapping("/date")
