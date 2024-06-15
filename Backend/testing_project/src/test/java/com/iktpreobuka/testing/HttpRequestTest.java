@@ -20,6 +20,6 @@ public class HttpRequestTest {
 
 	@Test
 	public void checkHelloWorldMethod() {
-		assertThat(testRestTemplate.getForObject("http://localhost:" + port + "/", String.class)).contains("Hello World!");
+		assertThat(testRestTemplate.getForObject("http://localhost:" + port + "/greetings", String.class)).contains("Hello World!");
 	}
 }
