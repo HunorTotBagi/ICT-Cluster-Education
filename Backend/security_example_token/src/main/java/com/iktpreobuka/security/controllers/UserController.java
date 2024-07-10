@@ -27,10 +27,13 @@ import io.jsonwebtoken.Jwts;
 
 @RestController
 public class UserController {
+	
 	@Autowired
 	private SecretKey secretKey;
+	
 	@Value("${spring.security.token-duration}")
 	private Integer tokenDuration;
+	
 	@Autowired
 	private UserRepository userRepository;
 

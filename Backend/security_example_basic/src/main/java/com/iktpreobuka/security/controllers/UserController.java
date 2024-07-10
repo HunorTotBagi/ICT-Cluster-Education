@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import com.iktpreobuka.security.entities.UserEntity;
 @RestController
 public class UserController {
 
+	@Secured({"ROLE_ADMIN", "ROLE_USER"})
 	@RequestMapping(method = RequestMethod.GET, value = "/users")
 	public ResponseEntity<?> getUsers(){
 		return new ResponseEntity<List<UserEntity>>(getDummyDB(), HttpStatus.OK);

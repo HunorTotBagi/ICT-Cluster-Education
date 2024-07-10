@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,27 +16,28 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.iktpreobuka.serialization.entities.AddressEntity;
 import com.iktpreobuka.serialization.entities.UserEntity;
+import com.iktpreobuka.serialization.entities.dto.UserRegisterDTO;
 import com.iktpreobuka.serialization.security.Views;
 
 @RestController
 @RequestMapping(value = "/api/v1/users")
 public class UserController {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
-    @JsonView(Views.Admin.class)
-    public ResponseEntity<?> getUserByID(@PathVariable Integer id) {
-        try {
-            List<UserEntity> users = getDummyDB();
-            for (UserEntity userEntity : users) {
-                if (userEntity.getId().equals(id)) {
-                    return new ResponseEntity<UserEntity>(userEntity, HttpStatus.OK);
-                }
-            }
-            return new ResponseEntity<String>("User not found", HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+	@GetMapping("/{id}")
+	@JsonView(Views.Admin.class)
+	public ResponseEntity<?> getUserByID(@PathVariable Integer id) {
+		try {
+			List<UserEntity> users = getDummyDB();
+			for (UserEntity userEntity : users) {
+				if (userEntity.getId().equals(id)) {
+					return new ResponseEntity<UserEntity>(userEntity, HttpStatus.OK);
+				}
+			}
+			return new ResponseEntity<String>("User not found", HttpStatus.NOT_FOUND);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
 	@GetMapping("/public")
 	@JsonView(Views.Public.class)
@@ -84,4 +86,14 @@ public class UserController {
 		list.add(ue1);
 		return list;
 	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<?> createUser(@RequestBody UserRegisterDTO user) {
+		UserEntity ue = new UserEntity();
+		ue.setId(3);
+		ue.setEmail(user.getEmail());
+		ue.setName(user.getName());
+		return new ResponseEntity<UserEntity>(ue, HttpStatus.OK);
+	}
+
 }

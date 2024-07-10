@@ -15,6 +15,7 @@ import com.iktpreobuka.restexamples.entities.BankClientEntity;
 @RestController
 @RequestMapping("/bankclients")
 public class BankClientRestController {
+	
 	protected List<BankClientEntity> getDB() {
 		List<BankClientEntity> clients = new ArrayList<BankClientEntity>();
 		clients.add(new BankClientEntity(1, "Milan", "Celikovic", "milancel@uns.ac.rs"));
