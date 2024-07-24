@@ -1,0 +1,23 @@
+.header_color {
+  color: blue;
+  font-weight: bold;
+}
+
+.author_color {
+  color: green;
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+}
+
+.two_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.style_text {
+  border: 2px solid pink;
+  border-radius: 4px;
+}
