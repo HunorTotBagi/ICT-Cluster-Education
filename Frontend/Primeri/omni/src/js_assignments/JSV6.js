@@ -1,13 +1,15 @@
 /* 
     Zadatak 6
-    a) Napisati funkciju koja računa koliko je dobar pangram neki string. Pangram je rečenica koja ima u sebi sva slova nekog jezika. Ovde nas samo zanima engleksi jezik radi jednostavnosti. Velika i mala slova ignorišemo, baš kao i apsolutno sve što nije slovo. Kvalitet pangrama definiše sledeće pravilo: ako nemamo sva slova, onda je kvalitet 0. Ako imamo sva slova, onda je kvalitet jednak broju slova u azbuci jezika (26 ovde) podeljenom sa brojem slova koji pangram u stvari ima. Savršen pangram (bez ponavljanja) onda ima rezultat 1. 
-    b) Napraviti React kontrolu koja omogucava da se pangram otkuca u tekst polje i onda, na pritisak dugmeta racuna kvalitet i prikazuje ga pored kontrole.
-    c) Prosirit kontrolu iz b) tako da ispod kontrole stoji lista svih slova koja jos nisu upotrebljena ta lista treba da se menja u toku kucanja. Ta lista treba da sadrzvi sva slova sa tim da su pristuna slova zelena a odsutna crvena.
+    a) Napisati funkciju koja računa koliko je dobar neki pangram. Pangram je rečenica koja sadrži sva slova nekog jezika. Ovde nas zanima samo engleski jezik radi jednostavnosti. Velika i mala slova ignorišemo, baš kao i apsolutno sve što nije slovo. Kvalitet pangrama definiše sledeće pravilo: ako nemamo sva slova, kvalitet je 0. Ako imamo sva slova, kvalitet je jednak broju slova u azbuci jezika (26 ovde) podeljenom sa brojem slova koji pangram zapravo ima. Savršen pangram (bez ponavljanja) ima rezultat 1.
+
+    b) Napraviti React kontrolu koja omogućava da se pangram otkuca u tekstualno polje i zatim, na pritisak dugmeta, računa kvalitet i prikazuje ga pored kontrole.
+
+    c) Proširiti kontrolu iz b) tako da ispod kontrole stoji lista svih slova koja još nisu upotrebljena. Ta lista treba da se menja tokom kucanja. Lista treba da sadrži sva slova, s tim da su prisutna slova zelena, a odsutna crvena.
 */
 import { useState, useEffect } from "react";
 
 const evaluate_pangram = (p) => {
-  const cleanedStr = p.toLowerCase().replace(/[^a-z]/g, '');
+  const cleanedStr = p.toLowerCase().replace(/[^a-z]/g, "");
   const uniqueLetters = new Set(cleanedStr);
 
   if (uniqueLetters.size < 26) {
@@ -15,7 +17,7 @@ const evaluate_pangram = (p) => {
   }
 
   return 26 / cleanedStr.length;
-}
+};
 
 const PangramChecker = () => {
   const [inputText, setInputText] = useState("");
@@ -29,7 +31,9 @@ const PangramChecker = () => {
       const counts = {};
       for (let i = 0; i < 26; i++) {
         const char = String.fromCharCode(97 + i);
-        counts[char] = (inputText.toLowerCase().match(new RegExp(char, "g")) || []).length;
+        counts[char] = (
+          inputText.toLowerCase().match(new RegExp(char, "g")) || []
+        ).length;
       }
       setLetterCounts(counts);
     } else {
@@ -52,7 +56,10 @@ const PangramChecker = () => {
       </div>
       <div>
         {Object.keys(letterCounts).map((char) => (
-          <div key={char} style={{ color: letterCounts[char] > 0 ? "green" : "red" }}>
+          <div
+            key={char}
+            style={{ color: letterCounts[char] > 0 ? "green" : "red" }}
+          >
             {char}: {letterCounts[char]}
           </div>
         ))}
