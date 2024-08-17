@@ -21,7 +21,7 @@ Due to the expected high demand, there will be a selection process involving tes
 This repository is organized to reflect the course modules and my progression through them.
 
 - **Module 1**: [Basics of Programming](./1%20-%20Basics%20of%20Programming/)
-- **Module 2**: [Basics of OOP](./2%20-%20Basics%20of%20Object%20Oriented%20Programming/)
+- **Module 2**: [Basics of Object Oriented Programming](./2%20-%20Basics%20of%20Object%20Oriented%20Programming/)
 - **Module 3**: Databases and SQL
 - **Module 4**: [Backend](./3%20-%20Backend/)
 - **Module 5**: [Frontend](./module4/)
