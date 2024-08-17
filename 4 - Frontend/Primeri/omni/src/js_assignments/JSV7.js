@@ -29,16 +29,20 @@ const JSV7 = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    if (year && month && day) {
-      const result = calculateSecondsAlive(year, month, day);
-      if (typeof result === "string") {
-        setErrorMessage(result);
-        setSecondsAlive(null);
-      } else {
-        setSecondsAlive(result);
-        setErrorMessage("");
+    const intervalId = setInterval(() => {
+      if (year && month && day) {
+        const result = calculateSecondsAlive(year, month, day);
+        if (typeof result === "string") {
+          setErrorMessage(result);
+          setSecondsAlive(null);
+        } else {
+          setSecondsAlive(result);
+          setErrorMessage("");
+        }
       }
-    }
+    }, 1000);
+
+    return () => clearInterval(intervalId);
   }, [year, month, day]);
 
   return (
