@@ -26,7 +26,7 @@ const PangramChecker = () => {
 
   useEffect(() => {
     if (inputText) {
-      setResult(evaluate_pangram(inputText));
+      setResult(evaluate_pangram(inputText).toFixed(3));
 
       const counts = {};
       for (let i = 0; i < 26; i++) {
