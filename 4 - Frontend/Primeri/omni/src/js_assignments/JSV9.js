@@ -1,8 +1,8 @@
 /* 
     Zadatak 9
-    a) Napisati funkciju koja za dati tekst vrati procenat upotrebe svih slova u redosledu abecede. Mala i velika slova se ignorišu, razmaci i znakovi interpunkcije se ignorišu. Za potrebe ovoga, samo se razmatra engleska abeceda. 
-    b) Napisati kontrolu koja kako kucam string tako osvezava display procenata upotrebe svih slova abecede.
-    BONUS) Modifikovati zadatak pod b) tako da ima i displej grafikona koji prikazuje istu stvar
+    a) Napisati funkciju koja za dati tekst vrati procenat upotrebe svih slova u redosledu abecede. Mala i velika slova se ignorišu, razmaci i znakovi interpunkcije se ignorišu. Za potrebe ovoga, samo se razmatra engleska abeceda
+    b) Napisati kontrolu koja kako kucam string tako osvežava display procenata upotrebe svih slova abecede
+    c) Modifikovati zadatak pod b) tako da ima i displej grafikona koji prikazuje istu stvar
 */
 
 import React, { useState } from "react";
