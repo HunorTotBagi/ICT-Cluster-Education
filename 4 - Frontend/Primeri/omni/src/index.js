@@ -387,3 +387,5 @@ root.render(
     <RouterProvider router={router} />
   </React.StrictMode>
 ); //Koristimo root.render da nešto iscrtamo u njemu. Šta iscrtavamo? Pa može bilo koji JSX: za nas to je RouterProvider (isto iz react-router-dom paketa) kome kažemo da koristi ruter koji smo gore napravili. RouterProvider onda radi sav posao za nas. StrictMode nam samo čini kod čistijim zato što nam ne dozvoljava neke stvari. 
+
+
